@@ -8,4 +8,3 @@ export default {
       return axios.get("api/stocks", "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=IBM&apikey=&apikey=YBQ1L57XJM2SZTUN");
     }
 };
-
