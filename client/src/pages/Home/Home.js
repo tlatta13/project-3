@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import "./home.css";
+import logo from "./logo.svg";
 
 class HomePage extends Component {
   render() {
@@ -9,8 +10,15 @@ class HomePage extends Component {
           <div className="col">
             {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
+            <img
+              src="https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg"
+              class="card-img-top"
+              alt="..."
+            />
+
+            <hr></hr>
+
             <div className="card text-center">
-              <img src="https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg" class="card-img-top" alt="..." />
               <div className="card-header">Budget App</div>
               <div className="card-body">
                 <h5 className="card-title">Login or Signup below to get started!</h5>
@@ -28,11 +36,11 @@ class HomePage extends Component {
               </div>
             </div>
 
-            <p></p>
+            <hr></hr>
 
             <div className="row row-cols-3 row-cols-md-3">
               <div className="col mb-4">
-                <div className="card">
+                <div className="info-card">
                   <img src="..." className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
@@ -41,7 +49,7 @@ class HomePage extends Component {
                 </div>
               </div>
               <div className="col mb-4">
-                <div className="card">
+                <div className="info-card">
                   <img src="..." className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
@@ -50,7 +58,7 @@ class HomePage extends Component {
                 </div>
               </div>
               <div className="col mb-4">
-                <div className="card">
+                <div className="info-card">
                   <img src="..." className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
@@ -59,7 +67,7 @@ class HomePage extends Component {
                 </div>
               </div>
               <div className="col mb-4">
-                <div className="card">
+                <div className="info-card">
                   <img src="..." class="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
@@ -68,7 +76,6 @@ class HomePage extends Component {
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
