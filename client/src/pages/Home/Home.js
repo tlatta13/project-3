@@ -19,19 +19,19 @@ class HomePage extends Component {
             <hr></hr>
 
             <div className="card text-center">
-              <div className="card-header">Featured</div>
+              <div className="card-header">Budget App</div>
               <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
+                <h5 className="card-title">Login or Signup below to get started!</h5>
                 <p className="card-text">
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
                 <a href="#" class="btn btn-primary">
-                  sign up
+                  Login
                 </a>
                 <p></p>
                 <a href="#" class="btn btn-primary">
-                  register
+                  Signup
                 </a>
               </div>
             </div>
@@ -44,11 +44,7 @@ class HomePage extends Component {
                   <img src="..." className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
                 </div>
               </div>
@@ -57,11 +53,7 @@ class HomePage extends Component {
                   <img src="..." className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
                 </div>
               </div>
@@ -70,10 +62,7 @@ class HomePage extends Component {
                   <img src="..." className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content.
-                    </p>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
                   </div>
                 </div>
               </div>
@@ -82,11 +71,7 @@ class HomePage extends Component {
                   <img src="..." class="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
-                    <p className="card-text">
-                      This is a longer card with supporting text below as a
-                      natural lead-in to additional content. This content is a
-                      little bit longer.
-                    </p>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
                   </div>
                 </div>
               </div>
