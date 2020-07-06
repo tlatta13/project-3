@@ -13,6 +13,7 @@ import Secret from '../../pages/Secret/Secret';
 import NotFound from '../../pages/NotFound/NotFound';
 
 import './App.css';
+import { Dashboard } from '@githubprimer/octicons-react';
 
 class App extends Component {
   constructor(props) {

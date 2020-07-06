@@ -13,6 +13,7 @@ secretsController.get('/', JWTVerifier, (req, res) => {
       if (error) throw error
     })
 })
+
 secretsController.get('/create', (req,res)=>{
   console.log('here')
   db.Secrets.create({})
