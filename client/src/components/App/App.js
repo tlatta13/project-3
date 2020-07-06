@@ -11,9 +11,9 @@ import Login from '../../pages/Login/Login';
 import Register from '../../pages/Register/Register';
 import Secret from '../../pages/Secret/Secret';
 import NotFound from '../../pages/NotFound/NotFound';
-
+import Dashboard from '../../pages/Dashboard'
 import './App.css';
-import { Dashboard } from '@githubprimer/octicons-react';
+import Footer from  '../Footer'
 
 class App extends Component {
   constructor(props) {
@@ -54,15 +54,17 @@ class App extends Component {
       <AuthContext.Provider value={this.state.auth}>
         <div className='App'>
           <Navigation />
-          <div className='container'>
+          <div className='container mainCon'>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
               <PrivateRoute path='/secret' component={Secret} />
+              <PrivateRoute path='/dashboard' component={Dashboard}/>
               <Route component={NotFound} />
             </Switch>
           </div>
+          <Footer/>
         </div>
       </AuthContext.Provider>
     );
