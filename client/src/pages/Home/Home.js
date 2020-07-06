@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-import logo from "./logo.svg";
 
 class HomePage extends Component {
   render() {
@@ -11,20 +10,20 @@ class HomePage extends Component {
             {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
             <div className="card text-center">
-            <img src="https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg" class="card-img-top" alt="..."/>
-              <div className="card-header">Featured</div>
+              <img src="https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg" class="card-img-top" alt="..." />
+              <div className="card-header">Budget App</div>
               <div className="card-body">
-                <h5 className="card-title">Special title treatment</h5>
+                <h5 className="card-title">Login or Signup below to get started!</h5>
                 <p className="card-text">
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
                 <a href="#" class="btn btn-primary">
-                  Go somewhere
+                  Login
                 </a>
-                  <p></p>
+                <p></p>
                 <a href="#" class="btn btn-primary">
-                  Go somewhere
+                  Signup
                 </a>
               </div>
             </div>
@@ -32,43 +31,43 @@ class HomePage extends Component {
             <p></p>
 
             <div className="row row-cols-3 row-cols-md-3">
-  <div className="col mb-4">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..."/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div className="col mb-4">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..."/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-  <div className="col mb-4">
-    <div className="card">
-      <img src="..." className="card-img-top" alt="..."/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-      </div>
-    </div>
-  </div>
-  <div className="col mb-4">
-    <div className="card">
-      <img src="..." class="card-img-top" alt="..."/>
-      <div className="card-body">
-        <h5 className="card-title">Card title</h5>
-        <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-      </div>
-    </div>
-  </div>
-</div>
+              <div className="col mb-4">
+                <div className="card">
+                  <img src="..." className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col mb-4">
+                <div className="card">
+                  <img src="..." className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col mb-4">
+                <div className="card">
+                  <img src="..." className="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                  </div>
+                </div>
+              </div>
+              <div className="col mb-4">
+                <div className="card">
+                  <img src="..." class="card-img-top" alt="..." />
+                  <div className="card-body">
+                    <h5 className="card-title">Card title</h5>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
           </div>
         </div>
