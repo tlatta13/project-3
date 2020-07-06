@@ -4,7 +4,7 @@ const Footer =()=>{
  return(
     <div className="bg-dark text-center border-info "
     style={{"border-width": 3}}>
-        <span className="text-white-50">&copy;2020 QuizStack</span>
+        <span className="text-white-50">&copy;2020 Budget Tracker</span>
         <p className="text-muted">
             <a className="ghlink" href="https://github.com/cag-martinez" target="_blank"  rel="noopener noreferrer">Christian Gomez Martinez</a> |
             <a className="ghlink" href="https://github.com/Savage1005" target="_blank"  rel="noopener noreferrer">Tom Savage</a> |
