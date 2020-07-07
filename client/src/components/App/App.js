@@ -14,7 +14,7 @@ import NotFound from '../../pages/NotFound/NotFound';
 import Dashboard from '../../pages/Dashboard'
 import './App.css';
 import Footer from  '../Footer';
-import GoogleFontLoader from 'react-google-font-loader';
+
 
 
 
