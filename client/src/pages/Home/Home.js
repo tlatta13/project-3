@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import "./home.css";
-import { Redirect } from "react-router-dom";
+import { Link } from "react-router-dom";
+
+
 
 class HomePage extends Component {
   render() {
@@ -23,12 +25,15 @@ class HomePage extends Component {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <a href="Dashboard" class="btn btn-primary mr-2">
-                  Login
-                </a>
-                <a href="Dashboard" class="btn btn-primary ml-2">
-                  Signup
-                </a>
+
+                <Link to='/login'>
+                  <button className="mr-2 btn btn-primary">Login</button>
+                </Link>
+                <Link to='/register'>
+                  <button className="ml-2 btn btn-danger">Register</button>
+                </Link>
+
+
               </div>
             </div>
 
