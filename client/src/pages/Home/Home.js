@@ -6,9 +6,6 @@ import img3 from "../../assets/images/summaries.png";
 import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
 
-
-
-
 class HomePage extends Component {
   render() {
     return (
@@ -38,15 +35,13 @@ class HomePage extends Component {
                 <Link to='/register'>
                   <button className="ml-2 btn btn-danger">Register</button>
                 </Link>
-
-
               </div>
             </div>
 
             <div className="row row-cols-3 row-cols-md-3">
               <div className="col mb-4">
                 <div className="info-card bg-light shadow">
-                  <img src={img1} className="card-img-top mt-3" alt="..." />
+                  <img src={img1} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Manage Spending</h5>
                     <p className="card-text">
@@ -57,7 +52,7 @@ class HomePage extends Component {
               </div>
               <div className="col mb-4">
                 <div className="info-card bg-light shadow">
-                  <img src={img2} className="card-img-top mt-3" alt="..." />
+                  <img src={img2} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Plan Savings</h5>
                     <p className="card-text">
@@ -68,7 +63,7 @@ class HomePage extends Component {
               </div>
               <div className="col mb-4">
                 <div className="info-card bg-light shadow">
-                  <img src={img3} className="card-img-top mt-3" alt="..." />
+                  <img src={img3} className="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">View Summaries</h5>
                     <p className="card-text">
@@ -79,7 +74,7 @@ class HomePage extends Component {
               </div>
               <div className="col mb-4">
                 <div className="info-card bg-light shadow">
-                  <img src={img4} class="card-img-top mt-3" alt="..." />
+                  <img src={img4} class="card-img-top" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Graphs and Reports</h5>
                     <p className="card-text">
