@@ -1,3 +1,4 @@
-const incomeController = require('express').Router();
-const db = require('../../models');
+const Income = require ('../models/user')
+const Expense = require('../models/expenses')
+const User = require('../models/user');
 

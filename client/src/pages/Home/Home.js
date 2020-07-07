@@ -7,7 +7,6 @@ class HomePage extends Component {
       <div className="Home">
         <div className="row">
           <div className="col">
-            {/* <img src={logo} className="App-logo" alt="logo" /> */}
 
             <img
               src="https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg"
@@ -15,32 +14,28 @@ class HomePage extends Component {
               alt="..."
             />
 
-            <hr></hr>
-
-            <div className="card text-center">
-              <div className="card-header">Budget App</div>
+            <div className="card text-center my-4">
+              <div className="card-header">
+                <h2>Budget App</h2>
+              </div>
               <div className="card-body">
-                <h5 className="card-title">Login or Signup below to get started!</h5>
                 <p className="card-text">
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <a href="#" class="btn btn-primary">
+                <a href="#" class="btn btn-primary mr-2">
                   Login
                 </a>
-                <p></p>
-                <a href="#" class="btn btn-danger">
+                <a href="#" class="btn btn-primary ml-2">
                   Signup
                 </a>
               </div>
             </div>
 
-            <hr></hr>
-
             <div className="row row-cols-3 row-cols-md-3">
               <div className="col mb-4">
-                <div className="info-card">
-                  <img src="..." className="card-img-top" alt="..." />
+                <div className="info-card bg-light">
+                  <img src="..." className="card-img-top mt-3" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -48,8 +43,8 @@ class HomePage extends Component {
                 </div>
               </div>
               <div className="col mb-4">
-                <div className="info-card">
-                  <img src="..." className="card-img-top" alt="..." />
+                <div className="info-card bg-light">
+                  <img src="..." className="card-img-top mt-3" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
@@ -57,17 +52,17 @@ class HomePage extends Component {
                 </div>
               </div>
               <div className="col mb-4">
-                <div className="info-card">
-                  <img src="..." className="card-img-top" alt="..." />
+                <div className="info-card bg-light">
+                  <img src="..." className="card-img-top mt-3" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
-                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
+                    <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This card is a little bit longer.</p>
                   </div>
                 </div>
               </div>
               <div className="col mb-4">
-                <div className="info-card">
-                  <img src="..." class="card-img-top" alt="..." />
+                <div className="info-card bg-light">
+                  <img src="..." class="card-img-top mt-3" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Card title</h5>
                     <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
