@@ -1,18 +1,21 @@
 const db = require('../../models');
+const { JWTVerifier } = require("../../lib/passport");
 const ExpenseController = require('express').Router();
 
-ExpenseController.post('api/expense', (req, res) => {
+ExpenseController.post('/', (req, res) => {
     // add new expense
 })
 
-ExpenseController.get('api/expense', (req, res) => {
-    // get all expense
+// GET /api/expense
+ExpenseController.get('/', JWTVerifier, (req, res) => {
+    // get all expenses
+    res.json(req.user.expenses);
 })
 
-ExpenseController.get('api/expense/:id', ({body, params}, res) => {
+ExpenseController.get('/:id', ({body, params}, res) => {
     // update expense
 })
 
-ExpenseController.get('api/expense/:id', (req, res) => {
+ExpenseController.get('/:id', (req, res) => {
     // delete expense
 })

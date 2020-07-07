@@ -2,7 +2,7 @@ const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const IncomeController = require('express').Router();
 
-IncomeController.post('/', (req, res) => {
+IncomeController.post('/', JWTVerifier, (req, res) => {
     // add new income
 })
 
@@ -12,11 +12,11 @@ IncomeController.get('/', JWTVerifier, (req, res) => {
     res.json(req.user.incomes);
 })
 
-IncomeController.get('/:id', ({body, params}, res) => {
+IncomeController.get('/:id', JWTVerifier, ({body, params}, res) => {
     // update income
 })
 
-IncomeController.get('/:id', (req, res) => {
+IncomeController.get('/:id', JWTVerifier, (req, res) => {
     // delete income
 })
 

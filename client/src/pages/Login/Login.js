@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-
 import API from '../../lib/API';
 import AuthContext from '../../contexts/AuthContext';
 import LoginForm from '../../components/LoginForm/LoginForm';
+import "../Login/Login.css";
 
 class Login extends Component {
   static contextType = AuthContext;
@@ -64,7 +64,7 @@ class Login extends Component {
         <div className='row'>
           <div className='col'>
             <LoginForm onSubmit={this.handleSubmit} />
-            <div className='mt-3'>Don't have an account? <Link to='/register'>Click here to register.</Link></div>
+            <div className='mt-3 link'>Don't have an account? <Link className="portal" to='/register'>Click here to register.</Link></div>
           </div>
         </div>
       </div>
