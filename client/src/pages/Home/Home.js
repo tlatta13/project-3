@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import "./home.css";
-import logo from "./logo.svg";
 
 class HomePage extends Component {
   render() {
@@ -30,7 +29,7 @@ class HomePage extends Component {
                   Login
                 </a>
                 <p></p>
-                <a href="#" class="btn btn-primary">
+                <a href="#" class="btn btn-danger">
                   Signup
                 </a>
               </div>
