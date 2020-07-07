@@ -13,7 +13,10 @@ import Secret from '../../pages/Secret/Secret';
 import NotFound from '../../pages/NotFound/NotFound';
 import Dashboard from '../../pages/Dashboard'
 import './App.css';
-import Footer from  '../Footer'
+import Footer from  '../Footer';
+import GoogleFontLoader from 'react-google-font-loader';
+
+
 
 class App extends Component {
   constructor(props) {
@@ -68,7 +71,9 @@ class App extends Component {
         </div>
       </AuthContext.Provider>
     );
+    
   }
+  
 }
 
 export default App;
