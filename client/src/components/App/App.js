@@ -59,12 +59,8 @@ class App extends Component {
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
               <Route path='/register' component={Register} />
-<<<<<<< HEAD
-              <PrivateRoute path='/secret' component={Secret} /> 
-=======
               <PrivateRoute path='/secret' component={Secret} />
               <PrivateRoute path='/dashboard' component={Dashboard}/>
->>>>>>> 66c3f7e89cd515588b45c3af21b0da0ea95b341f
               <Route component={NotFound} />
             </Switch>
           </div>
