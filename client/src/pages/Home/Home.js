@@ -26,7 +26,12 @@ class HomePage extends Component {
                 <a href="#" class="btn btn-primary mr-2">
                   Login
                 </a>
+<<<<<<< HEAD
                 <a href="#" class="btn btn-primary ml-2">
+=======
+                <p></p>
+                <a href="#" class="btn btn-danger">
+>>>>>>> 66c3f7e89cd515588b45c3af21b0da0ea95b341f
                   Signup
                 </a>
               </div>

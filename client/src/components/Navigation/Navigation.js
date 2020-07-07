@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 import AuthContext from '../../contexts/AuthContext';
 import AuthDropdown from '../../components/AuthDropdown/AuthDropdown';
 
@@ -25,7 +26,7 @@ class Navigation extends Component {
 
     return (
       <div className='Navigation'>
-        <nav className='navbar navbar-expand-lg navbar-light bg-light mb-3'>
+        <nav className='navbar navbar-expand-lg navbar-light bg-light'>
           <Link className='navbar-brand' to='#'>Project 3</Link>
           <button className={togglerClass} onClick={this.toggleCollapse} data-toggle='collapse' data-target='#navbarSupportedContent' aria-controls='navbarSupportedContent' aria-expanded='false' aria-label='Toggle navigation'>
             <span className='navbar-toggler-icon'></span>
@@ -37,9 +38,12 @@ class Navigation extends Component {
                 <Link className='nav-link' to='/' onClick={this.toggleCollapse}>Home</Link>
               </li>
               {user &&
+                <>
                 <li className='nav-item'>
                   <Link className='nav-link' to='/secret' onClick={this.toggleCollapse}>Secret</Link>
-                </li>}
+                  </li><li>
+                  <Link className='nav-link' to='/dashboard' onClick={this.toggleCollapse}>Dashboard</Link>
+                </li></>}
                 {/* {user &&
                 <li className='nav-item'>
                   <Link className='nav-link' to='/dashboard' onClick={this.toggleCollapse}>Secret</Link>
