@@ -15,7 +15,7 @@ const Dashboard = () => {
 
    <button className='btn btn-success'>Add Income</button>
    <div style ={{'width':'10%'}}/>
-   <button className='btn btn-success'>See Budget</button>
+   <button className='btn btn-success'>Add Expense</button>
     </div>
   
   </>;
