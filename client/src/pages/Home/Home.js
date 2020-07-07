@@ -22,10 +22,10 @@ class HomePage extends Component {
                   With supporting text below as a natural lead-in to additional
                   content.
                 </p>
-                <a href="#" class="btn btn-primary mr-2">
+                <a href="Dashboard" class="btn btn-primary mr-2">
                   Login
                 </a>
-                <a href="#" class="btn btn-primary ml-2">
+                <a href="Dashboard" class="btn btn-primary ml-2">
                   Signup
                 </a>
               </div>
