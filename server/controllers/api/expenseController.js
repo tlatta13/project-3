@@ -19,3 +19,5 @@ ExpenseController.get('/:id', ({body, params}, res) => {
 ExpenseController.get('/:id', (req, res) => {
     // delete expense
 })
+
+module.exports = ExpenseController
