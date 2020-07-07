@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import "./home.css";
+import { Redirect } from "react-router-dom";
 
 class HomePage extends Component {
   render() {
