@@ -15,14 +15,14 @@ const Dashboard = () => {
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
       </h1>
       <div style={style.buttons}>
-        <button className="btn btn-success">Add Income</button>
+        <button className="btn btn-secondary">Add Income</button>
         <div style={{ width: "10%" }} />
-        <button className="btn btn-success">Add Expense</button>
+        <button className="btn btn-secondary">Add Expense</button>
       </div>
       <div className="container">
-        <div class="row">
-          <div class="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
-          <div class="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
+        <div className="row">
+          <div className="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
+          <div className="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
         </div>
       </div>
     </>
