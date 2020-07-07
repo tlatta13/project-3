@@ -15,9 +15,9 @@ const Dashboard = () => {
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
       </h1>
       <div style={style.buttons}>
-        <button className="btn btn-success">Add Income</button>
+        <button className="btn btn-secondary">Add Income</button>
         <div style={{ width: "10%" }} />
-        <button className="btn btn-success">Add Expense</button>
+        <button className="btn btn-secondary">Add Expense</button>
       </div>
       <div className="container">
         <div className="row">
