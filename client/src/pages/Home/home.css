@@ -1,3 +1,12 @@
+
+.custom-class{
+    background-image: url(https://www.sarasotaoralsurgery.com/files/2019/04/shutterstock_530586361-2000x700.jpg);
+    height: 1500px;
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
 .info-card:hover {
     font-weight: bold;
     box-shadow: 10px 10px 10px 10px rgba(0,0,0,0.253)!important;
