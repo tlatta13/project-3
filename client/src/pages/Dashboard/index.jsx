@@ -1,5 +1,14 @@
 import React, { useContext } from "react";
 import AuthContext from "../../contexts/AuthContext";
+/* import car from './images/car.png' */
+
+// function App() {
+//   return (
+//     <div  styles={{ backgroundImage:`https://s3.amazonaws.com/timberlinefinancial/hero/settlements.jpg)` }}>
+//       <h1>Finance Image</h1>
+//     </div>
+//   );
+// }
 
 const Dashboard = () => {
   const userInfo = useContext(AuthContext);
@@ -12,6 +21,9 @@ const Dashboard = () => {
   };
   return (
     <>
+      <div  styles={{ backgroundImage:`https://s3.amazonaws.com/timberlinefinancial/hero/settlements.jpg)` }}>
+        <h1>Finance Image</h1>
+      </div>
       <h1 className="text-center text-light my-3">
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
       </h1>
@@ -30,4 +42,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default Dashboard; 
