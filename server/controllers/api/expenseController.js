@@ -2,7 +2,7 @@ const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const ExpenseController = require('express').Router();
 
-ExpenseController.post('/', (req, res) => {
+ExpenseController.post('/', JWTVerifier, (req, res) => {
     // add new expense
     req.user.expenses.unshift(
         {
