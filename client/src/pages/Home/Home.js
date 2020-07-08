@@ -62,18 +62,6 @@ class HomePage extends Component {
                             </div>
                         </div>
                     </div>
-<<<<<<< HEAD
-                  </div>
-                </div>
-                <div className="col mb-4">
-                  <div className="info-card bg-light shadow">
-                    <img src={img4} className="card-img-top mt-3" alt="..." />
-                    <div className="card-body">
-                      <h5 className="card-title">Graphs and Reports</h5>
-                      <p className="card-text">
-                        See how your wallet is doing with customized charts.
-                      </p>
-=======
 
                     <div className='col mb-4'>
                         <div className='info-card bg-light shadow'>
@@ -85,7 +73,6 @@ class HomePage extends Component {
                                 </p>
                             </div>
                         </div>
->>>>>>> 80b73150d1f4d6295a5bc90bd7d887095cb1e437
                     </div>
 
                     <div className='col mb-4'>
