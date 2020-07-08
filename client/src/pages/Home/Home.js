@@ -43,13 +43,16 @@ class HomePage extends Component {
               </div>
             </div>
 
-            <div className="row row-cols-3 row-cols-md-3">
+            <div 
+            ClassName="font-style: normal"
+            className="row row-cols-3 row-cols-md-3">
               <div className="col mb-4">
                 <div className="info-card bg-light shadow">
                   <img src={img1} className="card-img-top mt-3" alt="..." />
                   <div className="card-body">
                     <h5 className="card-title">Manage Spending</h5>
                     <p className="card-text">
+                      
                       Track all your spendings and manage your money your way.
                     </p>
                   </div>
