@@ -39,7 +39,16 @@ export default {
   },
   Income: {
     getAll: function (authToken) {
-      return axios.get('/api/incomce', {
+      return axios.get('/api/income', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+    }
+  },
+  Savings: {
+    getAll: function (authToken) {
+      return axios.get('/api/savings', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
