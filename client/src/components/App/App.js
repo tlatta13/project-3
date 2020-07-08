@@ -54,10 +54,13 @@ class App extends Component {
 
   render() {
     return (
+      
       <AuthContext.Provider value={this.state.auth}>
         <div className='App'>
           <Navigation />
-          <div className='container mainCon'>
+          {/* the bellow was comented out because it is what changes all stiles of all the pages */}
+          {/* <div className='container mainCon'> */}
+          <div className>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
@@ -70,6 +73,7 @@ class App extends Component {
           <Footer/>
         </div>
       </AuthContext.Provider>
+      
     );
     
   }
