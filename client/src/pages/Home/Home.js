@@ -5,7 +5,7 @@ import img2 from "../../assets/images/Piggy-Bank-on-money-250x250.jpg";
 import img3 from "../../assets/images/summaries.png";
 import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
-import { Parallax, ParallaxProvider } from "react-scroll-parallax";
+//import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 
 const HomePage = () => {
   return (
@@ -36,7 +36,7 @@ const HomePage = () => {
             </div>
           </div>
           <div className="row row-cols-3 row-cols-md-3">
-            <div className="col mb-4">
+            {/* <div className="col mb-4">
               <div className="info-card bg-light shadow">
                 <img src={img1} className="card-img-top mt-3" alt="..." />
                 <div className="card-body">
@@ -44,8 +44,8 @@ const HomePage = () => {
                   <p className="card-text">
                     Track all your spendings and manage your money your way.
                   </p>
-                </div>
-                <div className="card-body shadow">
+                </div> */}
+                {/* <div className="card-body shadow">
                   <p className="card-text">
                     With supporting text below as a natural lead-in to
                     additional content.
@@ -56,7 +56,7 @@ const HomePage = () => {
                   <Link to="/register">
                     <button className="ml-2 btn btn-danger">Register</button>
                   </Link>
-                </div>
+                </div> */}
               </div>
               <div className="row row-cols-3 row-cols-md-3">
                 <div className="col mb-4">
@@ -105,8 +105,8 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+        //   </div>
+        // </div>
     //   </Parallax>
     // </ParallaxProvider>
   );
