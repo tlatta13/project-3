@@ -60,7 +60,7 @@ class App extends Component {
           <Navigation />
           {/* the bellow was comented out because it is what changes all stiles of all the pages */}
           {/* <div className='container mainCon'> */}
-          <div className>
+          <div className='container mainCon'>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/login' component={Login} />
