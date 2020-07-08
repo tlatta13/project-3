@@ -27,6 +27,24 @@ export default {
         }
       });
     }
+  },
+  Expense: {
+    getAll: function (authToken) {
+      return axios.get('/api/expense', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+    }
+  },
+  Income: {
+    getAll: function (authToken) {
+      return axios.get('/api/incomce', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+    }
   }
 }
 
