@@ -94,7 +94,7 @@ const HomePage = () => {
                 </div>
                 <div className="col mb-4">
                   <div className="info-card bg-light shadow">
-                    <img src={img4} class="card-img-top mt-3" alt="..." />
+                    <img src={img4} className="card-img-top mt-3" alt="..." />
                     <div className="card-body">
                       <h5 className="card-title">Graphs and Reports</h5>
                       <p className="card-text">
