@@ -49,7 +49,7 @@ const Income = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="incomeBox">What is your current net income</label>
+          <label htmlFor="incomeBox">What is the amount being added</label>
           <input
             type="text"
             className="form-control"
