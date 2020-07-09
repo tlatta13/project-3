@@ -30,7 +30,7 @@ export default {
   },
   Expense: {
     getAll: function (authToken) {
-      return axios.get('/api/expense', {
+      return axios.post('/api/expense', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -39,7 +39,7 @@ export default {
   },
   Income: {
     getAll: function (authToken) {
-      return axios.get('/api/income', {
+      return axios.post('/api/income', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -48,7 +48,7 @@ export default {
   },
   Savings: {
     getAll: function (authToken) {
-      return axios.get('/api/savings', {
+      return axios.post('/api/savings', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
