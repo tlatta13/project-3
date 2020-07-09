@@ -97,20 +97,9 @@ const Dashboard = () => {
       >
         {modalContent === "income" ? <Income close={closeModal} /> :
         
-        null}
+       <Expense close={closeModal} />}
         </Modal>
 
-        <Modal Expense
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        style={customStyles}
-        contentLabel="Example Modal"
-      >
-        {modalContent === "expense" ? <Expense close={closeModal} /> :
-        
-        null}
-      </Modal>
     </div>
   );
 };
