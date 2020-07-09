@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import Modal from "react-modal";
 import Income from "../../components/Income";
-
+import Expense from "../../components/Expense"
 
 // function App() {
 //   return (
