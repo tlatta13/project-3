@@ -49,9 +49,7 @@ const Dashboard = () => {
   };
   return (
     <div className="class" style={customStyles.main}>
-      <div>
-        <h1>Finance Image</h1>
-      </div>
+    
       <h1 className="text-center text-light my-3">
         <div style={{color:"blue"}}>
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
