@@ -31,7 +31,7 @@ const Dashboard = () => {
         <button className="btn btn-secondary">Add Income</button>
         <div style={{ width: "10%" }} />
         <button className="btn btn-secondary">Add Expense</button>
-      </div>
+       </div>
       <div className="container">
         <div className="row">
           <div className="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
