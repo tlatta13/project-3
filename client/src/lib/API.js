@@ -28,27 +28,33 @@ export default {
       });
     }
   },
+
+  // Get all expenses
   Expense: {
     getAll: function (authToken) {
-      return axios.post('/api/expense', {
+      return axios.getAll('/api/expense', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
       });
     }
   },
+
+  // Get all income
   Income: {
     getAll: function (authToken) {
-      return axios.post('/api/income', {
+      return axios.getAll('/api/income', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
       });
     }
   },
+  
+  // Get all savings
   Savings: {
     getAll: function (authToken) {
-      return axios.post('/api/savings', {
+      return axios.getAll('/api/savings', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
