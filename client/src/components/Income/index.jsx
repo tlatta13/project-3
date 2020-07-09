@@ -33,7 +33,7 @@ const Income = (props) => {
       <form style={customStyles.main}>
         <div className="form-group">
           <div>
-            What is the date of this income?
+            Date of Income?
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
