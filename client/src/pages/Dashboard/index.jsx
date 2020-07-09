@@ -3,6 +3,9 @@ import AuthContext from "../../contexts/AuthContext";
 import Modal from "react-modal";
 import Income from "../../components/Income";
 import Expense from "../../components/Expense";
+import MonthlyBar from "../../components/Charts/monthlybar";
+import PieChart from "../../components/Charts/piechart";
+
 
 const customStyles = {
   content: {
@@ -15,7 +18,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
   main:{
-      'font-family': 'Arial, Helvetica, sans-serif'
+      'fontFamily': 'Arial, Helvetica, sans-serif'
     
   }
 };
@@ -71,13 +74,13 @@ const Dashboard = () => {
             className="col-sm d-flex flex-column justify-content-center"
             style={{ height: 500 }}
           >
-            Insert Graph
+             <MonthlyBar />
           </div>
           <div
             className="col-sm d-flex flex-column justify-content-center"
             style={{ height: 500 }}
           >
-            Insert Graph
+            <PieChart />
           </div>
         </div>
       </div>
