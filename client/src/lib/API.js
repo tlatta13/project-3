@@ -88,3 +88,23 @@ export default {
   }
 }
 
+// axios({
+//   "method":"GET",
+//   "url":"https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-summary",
+//   "headers":{
+//   "content-type":"application/octet-stream",
+//   "x-rapidapi-host":"apidojo-yahoo-finance-v1.p.rapidapi.com",
+//   "x-rapidapi-key":"REACT_APP_API_KEY",
+//   "useQueryString":true
+//   },"params":{
+//   "region":"US",
+//   "lang":"en"
+//   }
+//   })
+//   .then((response)=>{
+//     console.log(response)
+//   })
+//   .catch((error)=>{
+//     console.log(error)
+//   })
+
