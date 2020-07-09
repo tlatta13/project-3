@@ -46,3 +46,16 @@
     transform: rotate(360deg);
   }
 }
+
+.income {
+  color:whitesmoke;
+  background-color: purple;
+}
+
+.expense{
+  color:whitesmoke;
+  background-color: green;
+}
+
+
+
