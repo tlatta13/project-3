@@ -6,8 +6,11 @@ import img3 from "../../assets/images/summaries.png";
 import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
 //import { Parallax, ParallaxProvider } from "react-scroll-parallax";
-
-
+/* main:{
+    'fontFamily': 'Arial, Helvetica, sans-serif'
+  
+}
+ */
 class HomePage extends Component {
     render() {
         return (
