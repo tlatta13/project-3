@@ -18,7 +18,7 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
   main:{
-      'font-family': 'Arial, Helvetica, sans-serif'
+      'fontFamily': 'Arial, Helvetica, sans-serif'
     
   }
 };

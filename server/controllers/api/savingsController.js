@@ -1,6 +1,6 @@
 const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
-const IncomeController = require('express').Router();
+const SavingsController = require('express').Router();
 
 // Error Handler
 const handleError = (err, res) => {
@@ -9,9 +9,9 @@ const handleError = (err, res) => {
 }
 
 // POST /api/income
-IncomeController.post('/', JWTVerifier, (req, res) => {
+SavingsController.post('/', JWTVerifier, (req, res) => {
     // add new income
-    req.user.incomes.push(
+    req.user.savings.push(
         {
             date: req.body.date,
             category: req.body.category,
@@ -28,27 +28,27 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
 })
 
 // GET /api/income
-IncomeController.get('/', JWTVerifier, (req, res) => {
+SavingsController.get('/', JWTVerifier, (req, res) => {
     // get all income
-    // res.json(req.user.incomes); working route
+    // res.json(req.user.savings); working route
     res.json(
         [
             {
-                date: "06/1/2020",
-                category: "Paycheck",
-                amount: 4000 ,
+                date: "06/30/2020",
+                category: "Savings",
+                amount: 200 ,
                 comment: ""
             },
             {
-                date: "06/10/2020",
-                category: "Gift",
-                amount: 500 ,
-                comment: "Birthday gift from Mom"
+                date: "05/30/2020",
+                category: "Savings",
+                amount: 200 ,
+                comment: ""
             },
             {
-                date: "06/8/2020",
-                category: "Commission",
-                amount: 800 ,
+                date: "04/30/2020",
+                category: "Savings",
+                amount: 300 ,
                 comment: "July sales commission"
             }
         ]
@@ -56,21 +56,20 @@ IncomeController.get('/', JWTVerifier, (req, res) => {
 })
 
 // GET /api/income/:id
-IncomeController.get('/:id', JWTVerifier, ({body, params}, res) => {
+SavingsController.get('/:id', JWTVerifier, ({body, params}, res) => {
     // update income
 })
 
 // GET /api/income/
-IncomeController.get('/:id', JWTVerifier, (req, res) => {
+SavingsController.get('/:id', JWTVerifier, (req, res) => {
     // delete income
-    req.user.expenses.pull(_id);
+    req.user.savings.pull(_id);
 
     req.user.save(function (err) {
         if (err) return handleError(err, res)
-        console.log('Income deleted')
+        console.log('Savings deleted')
         res.sendStatus(200)
     })
 })
 
-module.exports = IncomeController;
-
+module.exports = SavingsController;

@@ -16,7 +16,6 @@ const IncomeSchema = new Schema({
   },
   comment: { 
     type: String,
-    default: 'Other'
   },
   type: {
       type: String,
@@ -31,7 +30,8 @@ const ExpenseSchema = new Schema({
   },
   category: { 
     type: String,
-    required: 'Please enter a category'
+    required: 'Please enter a category',
+    default: 'Other'
   },
   amount: { 
     type: Number,
@@ -39,7 +39,6 @@ const ExpenseSchema = new Schema({
   },
   comment: { 
     type: String,
-    default: 'Other'
   },
   type: {
       type: String,
@@ -66,10 +65,11 @@ const SavingSchema = new Schema({
   },
   type: {
       type: String,
-      default: "Expense"
+      default: "Savings"
   }
 });
 
+// Main Schema - Parent: User | Children: Income, Expense, Savings
 const UserSchema = new Schema({
   email: {
     type: String,
