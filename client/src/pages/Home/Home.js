@@ -7,11 +7,16 @@ import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
 //import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 
+
 class HomePage extends Component {
     render() {
         return (
             <div>
                 <div className='container'>
+                    
+                    {/* <View stlye={{flex:1}}>
+                    {React_API_Key}</View> */}
+                    
                     <img
                         src='https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg'
                         className='card-img-top shadow'
