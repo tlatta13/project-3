@@ -59,17 +59,19 @@ const Dashboard = () => {
         <h1>Finance Image</h1>
       </div>
       <h1 className="text-center text-light my-3">
+        <div style={{color:"blue"}}>
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
+        </div>
       </h1>
       <div style={style.buttons}>
         <button
-          className="btn btn-secondary"
+          className="income btn btn-secondary "
           onClick={() => openModal("income")}
         >
           Add Income
         </button>
         <div style={{ width: "10%" }} />
-        <button className="btn btn-secondary" onClick={()=>openModal("expense"  )}>Add Expense</button>
+        <button className="expense btn btn-secondary" onClick={()=>openModal('expense')}>Add Expense</button>
       </div>
       <div className="container">
         <div className="row">
