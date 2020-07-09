@@ -2,8 +2,8 @@ import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import Modal from "react-modal";
 import Income from "../../components/Income";
+import Expenses from "../../components/Expenses";
 
-/* import car from './images/car.png' */
 
 // function App() {
 //   return (
