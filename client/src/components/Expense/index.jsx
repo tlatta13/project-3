@@ -7,7 +7,7 @@ const customStyles = {
         'font-family': 'Arial, Helvetica, sans-serif'
     }
   };
-const Expense = (props) => {
+  const Expense = (props) => {
   const [expense, setExpense] = useState(0);
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState("");

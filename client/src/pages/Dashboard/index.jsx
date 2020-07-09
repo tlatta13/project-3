@@ -89,9 +89,7 @@ const Dashboard = () => {
         style={customStyles}
         contentLabel="Income Modal"
       >
-        {modalContent === "income" ? <Income close={closeModal} /> :
-        
-       <Expense close={closeModal} />}
+        {modalContent === "income" ? <Income close={closeModal} /> :<Expense close={closeModal} />}
         </Modal>
 
     </div>
