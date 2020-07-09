@@ -5,7 +5,6 @@ import "react-datepicker/dist/react-datepicker.css";
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
-      
     }
   };
 const Expense = (props) => {
@@ -39,7 +38,7 @@ const Expense = (props) => {
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-          <label htmlFor="categoryBox">Type of expense</label>
+          <label htmlFor="categoryBox">Type of Expense?</label>
           <input
             type="text"
             className="form-control"
@@ -49,7 +48,7 @@ const Expense = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="incomeBox">What is the amount of the expense</label>
+          <label htmlFor="incomeBox">What is the amount of the expense?</label>
           <input
             type="text"
             className="form-control"
@@ -59,7 +58,7 @@ const Expense = (props) => {
           />
         </div>
         <div>
-          <div>Comments:</div>
+          <div>Expense Notes:</div>
 
           <textarea
             id="commentBox"
