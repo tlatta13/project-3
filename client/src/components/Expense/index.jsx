@@ -23,7 +23,7 @@ const Expense = (props) => {
       date: date,
       category: category,
       amount: expense,
-      comment: comment,
+      comment: comment
     });
     props.close()
   };

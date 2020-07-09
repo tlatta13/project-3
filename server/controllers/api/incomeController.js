@@ -11,7 +11,7 @@ const handleError = (err, res) => {
 // POST /api/income
 IncomeController.post('/', JWTVerifier, (req, res) => {
     // add new income
-    req.user.incomes.unshift(
+    req.user.incomes.push(
         {
             date: req.body.date,
             category: req.body.category,
@@ -61,7 +61,7 @@ IncomeController.get('/:id', JWTVerifier, ({body, params}, res) => {
 })
 
 // GET /api/income/
-IncomeController.get('/', JWTVerifier, (req, res) => {
+IncomeController.get('/:id', JWTVerifier, (req, res) => {
     // delete income
     req.user.expenses.pull(_id);
 

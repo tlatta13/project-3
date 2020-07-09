@@ -11,7 +11,7 @@ const handleError = (err, res) => {
 // POST /api/expense
 ExpenseController.post('/', JWTVerifier, async (req, res) => {
     // add new expense
-    req.user.expenses.unshit(
+    req.user.expenses.push(
         {
             date: req.body.date,
             category: req.body.category,
