@@ -90,6 +90,7 @@ class HomePage extends Component {
                             <div className='card-body'>
                                 <h5 className='card-title'>Graphs and Reports</h5>
                                 <p className='card-text'>
+                                    
                                     Track your budget with customized charts and reports.
                                 </p>
                             </div>
