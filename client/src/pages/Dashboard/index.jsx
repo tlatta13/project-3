@@ -1,6 +1,8 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../contexts/AuthContext";
-/* import car from './images/car.png' */
+import Modal from "react-modal";
+import Income from "../../components/Income";
+
 
 // function App() {
 //   return (
@@ -9,8 +11,38 @@ import AuthContext from "../../contexts/AuthContext";
 //     </div>
 //   );
 // }
+const customStyles = {
+  content: {
 
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
+  },
+  main:{
+      'font-family': 'Arial, Helvetica, sans-serif'
+    
+  }
+};
 const Dashboard = () => {
+  const [modalIsOpen, setIsOpen] = useState(false);
+  const [modalContent, setModalContent] = useState("");
+  const openModal = (contents) => {
+    setModalContent(contents);
+    setIsOpen(true);
+  };
+  useEffect(() => Modal.setAppElement("body"));
+  const afterOpenModal = () => {
+    // references are now sync'd and can be accessed.
+    // subtitle.style.color = '#f00';
+  };
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
+  
   const userInfo = useContext(AuthContext);
 
   const style = {
@@ -20,26 +52,71 @@ const Dashboard = () => {
     },
   };
   return (
-    <>
-      <div  styles={{ backgroundImage:`https://s3.amazonaws.com/timberlinefinancial/hero/settlements.jpg)` }}>
+    <div className="class" style={customStyles.main}>
+      <div>
         <h1>Finance Image</h1>
       </div>
       <h1 className="text-center text-light my-3">
+        <div style={{color:"blue"}}>
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
+        </div>
       </h1>
       <div style={style.buttons}>
-        <button className="btn btn-secondary">Add Income</button>
+        <button
+          className="income btn btn-secondary "
+          onClick={() => openModal("income")}
+        >
+          Add Income
+        </button>
         <div style={{ width: "10%" }} />
+<<<<<<< HEAD
         <button className="btn btn-secondary">Add Expense</button>
        </div>
+=======
+        <button className="expense btn btn-secondary" onClick={()=>openModal('expense')}>Add Expense</button>
+      </div>
+>>>>>>> 323d174d847b4e29b71ca79cf564394fcfd241a6
       <div className="container">
         <div className="row">
-          <div className="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
-          <div className="col-sm d-flex flex-column justify-content-center" style={{height:500}}>Insert Graph</div>
+          <div
+            className="col-sm d-flex flex-column justify-content-center"
+            style={{ height: 500 }}
+          >
+            Insert Graph
+          </div>
+          <div
+            className="col-sm d-flex flex-column justify-content-center"
+            style={{ height: 500 }}
+          >
+            Insert Graph
+          </div>
         </div>
       </div>
-    </>
+      <Modal Income
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        {modalContent === "income" ? <Income close={closeModal} /> :
+        
+        null}
+        </Modal>
+
+        <Modal Expense
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        {modalContent === "expense" ? <Expense close={closeModal} /> :
+        
+        null}
+      </Modal>
+    </div>
   );
 };
 
-export default Dashboard; 
+export default Dashboard;
