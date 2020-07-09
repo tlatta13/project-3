@@ -71,7 +71,7 @@ export default {
   // Get all savings
   Savings: {
     getAll: function (authToken) {
-      return axios.getAll('/api/savings', {
+      return axios.get('/api/savings', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -84,6 +84,11 @@ export default {
         },
         savings
         });
+    }
+  },
+  Stock: {
+    get:function(){
+      return axios.get('/api/stock')
     }
   }
 }
