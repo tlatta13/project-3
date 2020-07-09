@@ -2,10 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const IncomeSchema = new Schema({
-  date: { type: Date, default: Date.now },
-  category: { name: String },
-  amount: { type: Number } ,
-  // account: { type: String },
+  date: { 
+    type: Date, 
+    default: Date.now 
+  },
+  category: { 
+    type: String,
+    default: "Other"
+  },
+  amount: { 
+    type: Number,
+    required: 'Please enter an amount' 
+  },
   comment: { type: String },
   type: {
       type: String,
@@ -14,22 +22,32 @@ const IncomeSchema = new Schema({
 });
 
 const ExpenseSchema = new Schema({
-  date: { type: Date, default: Date.now },
-  category: { name: String },
-  amount: { type: Number } ,
-  // account: { type: String },
+  date: { 
+    type: Date, 
+    default: Date.now 
+  },
+  category: { 
+    type: String,
+    required: 'Please enter a category'
+  },
+  amount: { 
+    type: Number,
+    required: 'Please enter an amount' 
+  },
   comment: { type: String },
   type: {
       type: String,
-      default: "Income"
+      default: "Expense"
   }
 });
 
 const SavingSchema = new Schema({
-  date: { type: Date, default: Date.now },
+  date: { 
+    type: Date, 
+    default: Date.now 
+  },
   category: { name: String },
-  amount: { type: Number } ,
-  // account: { type: String },
+  amount: { type: Number },
   comment: { type: String },
   type: {
       type: String,
