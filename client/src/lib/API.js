@@ -28,6 +28,8 @@ export default {
       });
     }
   },
+
+  // Get all expenses
   Expense: {
     getAll: function (authToken) {
       return axios.getAll('/api/expense', {
@@ -37,6 +39,8 @@ export default {
       });
     }
   },
+
+  // Get all income
   Income: {
     getAll: function (authToken) {
       return axios.getAll('/api/income', {
@@ -46,6 +50,8 @@ export default {
       });
     }
   },
+  
+  // Get all savings
   Savings: {
     getAll: function (authToken) {
       return axios.getAll('/api/savings', {
