@@ -20,7 +20,7 @@ class HomePage extends Component {
                     
                     <div className='card text-center my-4'>
                         <div className='card-header shadow'>
-                            <h2>Budget App</h2>
+                            <h2>Budget Planner</h2>
                         </div>
                         <div className='card-body shadow'>
                             <p className='card-text'>
