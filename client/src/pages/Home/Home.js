@@ -6,6 +6,7 @@ import img3 from "../../assets/images/summaries.png";
 import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
 import Ticker from 'react-ticker'
+
 //import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 /* main:{
     'fontFamily': 'Arial, Helvetica, sans-serif'
@@ -17,7 +18,14 @@ class HomePage extends Component {
         return (
             <div>
                 <div className='container'>
-                    
+                    <Ticker>
+                        {({ index }) => (
+                            <>
+                                <h1>This is the Headline of element #{index}!</h1>
+                                <img src="www.my-image-source.com/" alt="" />
+                            </>
+                        )}
+                    </Ticker>  
                     {/* <View stlye={{flex:1}}>
                     {React_API_Key}</View> */}
                     
