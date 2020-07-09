@@ -2,7 +2,6 @@ import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import Modal from "react-modal";
 import Income from "../../components/Income";
-import Expenses from "../../components/Expenses";
 
 
 // function App() {
@@ -43,6 +42,7 @@ const Dashboard = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  
   const userInfo = useContext(AuthContext);
 
   const style = {
@@ -52,24 +52,24 @@ const Dashboard = () => {
     },
   };
   return (
-    <div style={customStyles.main}>
-      <div
-       
-      >
+    <div className="class" style={customStyles.main}>
+      <div>
         <h1>Finance Image</h1>
       </div>
       <h1 className="text-center text-light my-3">
+        <div style={{color:"blue"}}>
         Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
+        </div>
       </h1>
       <div style={style.buttons}>
         <button
-          className="btn btn-secondary"
+          className="income btn btn-secondary "
           onClick={() => openModal("income")}
         >
           Add Income
         </button>
         <div style={{ width: "10%" }} />
-        <button className="btn btn-secondary" onClick={()=>openModal('expense')}>Add Expense</button>
+        <button className="expense btn btn-secondary" onClick={()=>openModal('expense')}>Add Expense</button>
       </div>
       <div className="container">
         <div className="row">
@@ -87,7 +87,7 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <Modal
+      <Modal Income
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
@@ -95,7 +95,19 @@ const Dashboard = () => {
         contentLabel="Example Modal"
       >
         {modalContent === "income" ? <Income close={closeModal} /> :
-        //<Expenses close={closeModal}/>
+        
+        null}
+        </Modal>
+
+        <Modal Expense
+        isOpen={modalIsOpen}
+        onAfterOpen={afterOpenModal}
+        onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel="Example Modal"
+      >
+        {modalContent === "expense" ? <Expense close={closeModal} /> :
+        
         null}
       </Modal>
     </div>

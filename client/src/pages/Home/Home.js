@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './home.css';
+import "./home.css";
 import img1 from "../../assets/images/budgetUse.png";
 import img2 from "../../assets/images/Piggy-Bank-on-money-250x250.jpg";
 import img3 from "../../assets/images/summaries.png";
