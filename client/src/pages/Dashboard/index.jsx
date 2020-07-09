@@ -69,13 +69,8 @@ const Dashboard = () => {
           Add Income
         </button>
         <div style={{ width: "10%" }} />
-<<<<<<< HEAD
-        <button className="btn btn-secondary">Add Expense</button>
-       </div>
-=======
         <button className="expense btn btn-secondary" onClick={()=>openModal('expense')}>Add Expense</button>
       </div>
->>>>>>> 323d174d847b4e29b71ca79cf564394fcfd241a6
       <div className="container">
         <div className="row">
           <div

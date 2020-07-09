@@ -25,9 +25,10 @@ class MonthlyBar extends Component {
     constructor(props){
         super(props)
         this.state={
-            labels: excercises, 
+            
+            labels: ["Income", "Expenses", "Savings"],
             datasets: [{
-            data:[815, 400, 1200],
+            data:[3250, 1650, 0],
             backgroundColor: this.colors
         }]
     }
@@ -36,13 +37,14 @@ class MonthlyBar extends Component {
 render(){
     return (
         <div>
-        <h1>Expenses by Month</h1>
-        <Bar
+        <p className="text center">Income, Expenses, and Savings</p>
+        <Bar 
+         
          data={{
              labels: this.state.labels,
              datasets: this.state.datasets
          }}
-         height='50%'
+         height='250%'
          />
         </div>
     )

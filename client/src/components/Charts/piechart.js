@@ -25,9 +25,9 @@ class PieChart extends Component {
     constructor(props){
         super(props)
         this.state={
-            labels: expenses,
+            labels: ["Rent", "Food", "Cable"],
             datasets: [{
-            data:[815, 400, 1200],
+            data:[815, 400, 75],
             backgroundColor: this.colors
         }]
     }
@@ -36,13 +36,13 @@ class PieChart extends Component {
 render(){
     return (
         <div>
-        <h1>Expenses Chart</h1>
+        <p className="text-center">Expenses Chart</p>
         <Pie
          data={{
              labels: this.state.labels,
              datasets: this.state.datasets
          }}
-         height='50%'
+         height='250%'
          />
         </div>
     )
