@@ -8,8 +8,8 @@ const customStyles = {
       
     }
   };
-const Income = (props) => {
-  const [income, setIncome] = useState(0);
+const Expense = (props) => {
+  const [expense, setExpense] = useState(0);
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState("");
   const [comment, setComment] = useState("");
@@ -23,7 +23,7 @@ const Income = (props) => {
     console.log({
       date: date,
       category: category,
-      amount: income,
+      amount: expense,
       comment: comment,
     });
     props.close()
@@ -34,12 +34,12 @@ const Income = (props) => {
       <form style={customStyles.main}>
         <div className="form-group">
           <div>
-            What is the date of this income?
+            What is the date of the transaction?
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-          <label htmlFor="categoryBox">What is your current net income</label>
+          <label htmlFor="categoryBox">Type of expense</label>
           <input
             type="text"
             className="form-control"
@@ -49,13 +49,13 @@ const Income = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="incomeBox">What is the amount being added</label>
+          <label htmlFor="incomeBox">What is the amount of the expense</label>
           <input
             type="text"
             className="form-control"
             id="incomeBox"
-            value={income}
-            onChange={(event) => setIncome(event.target.value)}
+            value={expense}
+            onChange={(event) => setExpense(event.target.value)}
           />
         </div>
         <div>
@@ -94,4 +94,4 @@ const Income = (props) => {
   );
 };
 
-export default Income;
+export default Expense;
