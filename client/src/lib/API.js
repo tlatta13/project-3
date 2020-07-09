@@ -28,31 +28,62 @@ export default {
       });
     }
   },
+
+  // Get all expenses
   Expense: {
     getAll: function (authToken) {
+      return axios.getAll('/api/expense', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+    },
+    post: function (authToken,expense) {
       return axios.post('/api/expense', {
         headers: {
           'Authorization': `Bearer ${authToken}`
-        }
-      });
+        },
+        expense
+        });
     }
+  
   },
+
+  // Get all income
   Income: {
     getAll: function (authToken) {
+      return axios.getAll('/api/income.getAll', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+      });
+    },
+    post: function (authToken,income) {
       return axios.post('/api/income', {
         headers: {
           'Authorization': `Bearer ${authToken}`
-        }
-      });
+        },
+        income
+        });
     }
   },
+  
+  // Get all savings
   Savings: {
     getAll: function (authToken) {
-      return axios.post('/api/savings', {
+      return axios.getAll('/api/savings', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
       });
+    },
+    post: function (authToken,savings) {
+      return axios.post('/api/savings', {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        },
+        savings
+        });
     }
   }
 }
