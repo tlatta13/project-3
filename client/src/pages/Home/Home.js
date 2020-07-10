@@ -5,7 +5,7 @@ import img2 from "../../assets/images/Piggy-Bank-on-money-250x250.jpg";
 import img3 from "../../assets/images/summaries.png";
 import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
-import Ticker from 'react-ticker'
+import Ticker from 'react-ticker';
 
 //import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 /* main:{
