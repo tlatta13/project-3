@@ -5,6 +5,7 @@ import Income from "../../components/Income";
 import Expense from "../../components/Expense";
 import MonthlyBar from "../../components/Charts/monthlybar";
 import PieChart from "../../components/Charts/piechart";
+import IncomeTable from "../../components/Tables/income"
 
 
 const customStyles = {
@@ -23,6 +24,7 @@ const customStyles = {
   }
 };
 const Dashboard = () => {
+  // Modal Info Start
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
   const openModal = (contents) => {
@@ -53,6 +55,8 @@ const Dashboard = () => {
       backgroundColor: "red"
     }
   };
+  // Modal Info End
+
   return (
     <div className="class" style={customStyles.main}>
       <div className="container bg-light border-0 rounded my-4">
@@ -116,20 +120,25 @@ const Dashboard = () => {
 
       {/* Income Savings and Expense Tables */}
       <div className="container bg-light border-0 rounded my-4">
+        <h3 className="text-center mb-3 pt-4">
+          Income
+        </h3>
+        <IncomeTable
+          // incomes={this.state.filteredIncomes}
+          // sortByDate={this.sortByDate}
+          // sortByCategory={this.sortByCategory}
+        />
+      </div>
+
+      <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
-          Income Table
+          Savings
         </h3>
       </div>
 
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
-          Savings Table
-        </h3>
-      </div>
-
-      <div className="container bg-light border-0 rounded my-4">
-        <h3 className="text-center mb-3 py-4">
-          Expense Table
+          Expenses
         </h3>
       </div>
     </div>
