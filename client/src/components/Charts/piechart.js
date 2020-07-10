@@ -1,7 +1,35 @@
 import React, {Component} from 'react'
 import {Pie} from 'react-chartjs-2'
+import authContext from '../../contexts/AuthContext'
+import API from '../../lib/API'
+
 
 class PieChart extends Component {
+    static contextType = authContext;
+    
+  
+    componentDidMount() {
+        API.Expense.getAll(this.context.authToken)
+        .then(res => {
+            console.log(res)
+
+           const newLabels = res.data.map(expense=>{
+               return expense.category
+           })
+
+           const newAmount = res.data.map(expense=>{
+               return expense.amount
+           })
+
+           this.setState({
+            expenses: res.data,
+           labels : newLabels, 
+           data: newAmount
+        })
+    })
+        .catch(err => console.log(err));
+    }
+    
 
     colors =[
         "#003f5c",
@@ -29,7 +57,8 @@ class PieChart extends Component {
             datasets: [{
             data:[815, 400, 75],
             backgroundColor: this.colors
-        }]
+        }],
+        expenses: []
     }
 }
 
@@ -42,7 +71,7 @@ render(){
              labels: this.state.labels,
              datasets: this.state.datasets
          }}
-         height='250%'
+         height={200}
          />
         </div>
     )
