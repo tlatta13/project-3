@@ -15,7 +15,7 @@ const MoveStuffAround = () => {
         <Ticker>
           {({ index }) => (
               <>
-                  <h1>This is the Headline of element #{index}!</h1>
+                  <h4 className="mt-3">This is the Headline of element #{index}!</h4>
                   <img src="www.my-image-source.com/" alt=""/>
               </>
           )}

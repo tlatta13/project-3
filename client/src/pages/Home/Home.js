@@ -21,7 +21,7 @@ class HomePage extends Component {
                     <Ticker>
                         {({ index }) => (
                             <>
-                                <h1>This is the Headline of element #{index}!</h1>
+                                <h4 className="mt-3">This is the Headline of element #{index}!</h4>
                                 <img src="www.my-image-source.com/" alt="" />
                             </>
                         )}
@@ -31,17 +31,17 @@ class HomePage extends Component {
                     
                     <img
                         src='https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg'
-                        className='card-img-top shadow'
+                        className='card-img shadow'
                         alt="..."
                     />
                     
                     <div className='card text-center my-4'>
                         <div className='card-header shadow'>
-                            <h2>Budget Planner</h2>
+                            <h2 className="pt-3">Simplify Your Budget!</h2>
                         </div>
                         <div className='card-body shadow'>
                             <p className='card-text'>
-                                With supporting text below as a natural lead-in to addition content
+                                Creating a budget 
                             </p>
                             <Link to='/login'>
                                 <button className="mr-2 btn btn-primary">Login</button>
@@ -54,52 +54,52 @@ class HomePage extends Component {
                 </div>
 
                 <div className='container'>
-                <div className='row row-cols-3 row-cols-md-3 '>
-                    <div className='col mb-4'>
+                <div className='row'>
+                    <div className='col-6 col-sm-6 col-md-3 mb-4'>
                         <div className='info-card bg-light shadow'>
-                            <img src={img1} className='card-img-top' alt='...' />
+                            <img src={img1} className='card-img' alt='...' />
                             <div className='card-body'>
                                 <h5 className='card-title'>Manage Spending</h5>
                                 <p className='card-text'>
-                                    Track all your spending and mange your money your way.
+                                    Track all your expenses and mange your money your way.
                                 </p>
                             </div>
                         </div>
                     </div>
                 
 
-                    <div className='col mb-4'>
+                    <div className='col-6 col-sm-6 col-md-3 mb-4'>
                         <div className='info-card bg-light shadow'>
-                            <img src={img2} className='card-img-top' alt='...' />
+                            <img src={img2} className='card-img' alt='...' />
                             <div className='card-body'>
                                 <h5 className='card-title'>Plan Savings</h5>
                                 <p className='card-text'>
-                                    See your savings add up and put them to good use. 
+                                    Track your savings to plan for the future needs and unexpected expenses. 
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div className='col mb-4'>
+                    <div className='col-6 col-sm-6 col-md-3 mb-4'>
                         <div className='info-card bg-light shadow'>
-                            <img src={img3} className='card-img-top' alt='...' />
+                            <img src={img3} className='card-img' alt='...' />
                             <div className='card-body'>
-                                <h5 className='card-title'>View Summaries</h5>
+                                <h5 className='card-title'>Track Financial Goals</h5>
                                 <p className='card-text'>
-                                    View summaries of your past spending and deposits.
+                                    Building a good budget can help you achieve your financial goals.
                                 </p>
                             </div>
                         </div>
                     </div>
 
-                    <div className='col mb-4'>
+                    <div className='col-6 col-sm-6 col-md-3 mb-4'>
                         <div className='info-card bg-light shadow'>
-                            <img src={img4} className='card-img-top' alt='...' />
+                            <img src={img4} className='card-img' alt='...' />
                             <div className='card-body'>
                                 <h5 className='card-title'>Graphs and Reports</h5>
                                 <p className='card-text'>
                                     
-                                    Track your budget with customized charts and reports.
+                                    Track your budget with customized graphs and reports.
                                 </p>
                             </div>
                         </div>
