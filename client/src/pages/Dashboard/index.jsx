@@ -6,6 +6,8 @@ import Expense from "../../components/Expense";
 import MonthlyBar from "../../components/Charts/monthlybar";
 import PieChart from "../../components/Charts/piechart";
 import IncomeTable from "../../components/Tables/income"
+import ExpenseTable from "../../components/Tables/expense"
+import SavingsTable from "../../components/Tables/savings"
 
 
 const customStyles = {
@@ -134,12 +136,22 @@ const Dashboard = () => {
         <h3 className="text-center mb-3 py-4">
           Savings
         </h3>
+        <SavingsTable
+          // incomes={this.state.filteredIncomes}
+          // sortByDate={this.sortByDate}
+          // sortByCategory={this.sortByCategory}
+        />
       </div>
 
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Expenses
         </h3>
+        <ExpenseTable
+          // incomes={this.state.filteredIncomes}
+          // sortByDate={this.sortByDate}
+          // sortByCategory={this.sortByCategory}
+        />
       </div>
     </div>
   );

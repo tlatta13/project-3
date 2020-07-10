@@ -1,65 +1,65 @@
 import React, { Component } from "react";
-import API from "../../lib/API";
-import authContext from '../../contexts/AuthContext';
+import API from "../../lib/API"
+import authContext from '../../contexts/AuthContext'
 
-class IncomeTable extends Component {
+class SavingsTable extends Component {
     static contextType = authContext;
 
     state = {
-        incomes: [],
-        filteredIncomes: [],
+        savings: [],
+        filteredSavings: [],
         order: ""
     };
 
     componentDidMount() {
-        API.Income.getAll(this.context.authToken)
+        API.Savings.getAll(this.context.authToken)
         .then(res => {
             console.log(res)
-           this.setState({
-            incomes: res.data,
-            filteredIncomes: res.data
+            this.setState({
+            savings: res.data,
+            filteredSavings: res.data
         })
     })
         .catch(err => console.log(err));
     }
 
     sortByDate = () => {
-        const filterIncomes = this.state.filteredIncomes;
+        const filterSavings = this.state.filteredSavings;
         if (this.state.order === "desc") {
-            const sortIncomes = filterIncomes.sort((a, b) => 
+            const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? -1 : 1);
             
             this.setState({
-                filteredIncomes: sortIncomes,
+                filteredSavings: sortSavings,
                 order: "asc"
             });
         } else {
-            const sortIncomes = filterIncomes.sort((a, b) => 
+            const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? 1 : -1);
     
             this.setState({
-                filteredIncomes: sortIncomes,
+                filteredIncomes: sortSavings,
                 order: "desc"
             });
         };
     };
 
     sortByCategory = () => {
-        const filterIncomes = this.state.filteredIncomes;
+        const filterSavings = this.state.filteredIncomes;
         if (this.state.order === "desc") {
-            const sortIncomes = filterIncomes.sort((a, b) => 
+            const sortSavings = filterSavings.sort((a, b) => 
                 (a.category > b.category) ? -1 : 1);
             
             this.setState({
-                filteredIncomes: sortIncomes,
+                filteredIncomes: sortSavings,
                 order: "asc"
             });
         } else {
-            const sortIncomes = filterIncomes.sort((a, b) => 
+            const sortSavings = filterSavings.sort((a, b) => 
                 (a.category > b.category) ? 1 : -1);
     
             this.setState({
-                filteredIncomes: sortIncomes,
+                filteredSavings: sortSavings,
                 order: "desc"
             });
         };
@@ -78,8 +78,8 @@ class IncomeTable extends Component {
                 </thead>
                 <tbody>
                     
-                    {/* Map over incomes to display all */}
-                    {this.state.incomes.map((result) => (
+                    {/* Map over savings to display all */}
+                    {this.state.savings.map((result) => (
                         <tr key={result._id}>
                             <td>{ result.date }</td>
                             <td>{ result.category }</td>
@@ -93,4 +93,4 @@ class IncomeTable extends Component {
     }
 }
 
-export default IncomeTable
+export default SavingsTable
