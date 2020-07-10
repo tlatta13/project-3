@@ -1,7 +1,19 @@
 import React, {Component} from 'react'
 import {Pie} from 'react-chartjs-2'
+import axios from 'axios'
+
+
+
+
+
 
 class PieChart extends Component {
+    
+    componentDidMount (){
+        axios.get("localhost:3001/user/expense").then(response => {
+            console.log(response)
+        })
+    }
 
     colors =[
         "#003f5c",
@@ -42,7 +54,7 @@ render(){
              labels: this.state.labels,
              datasets: this.state.datasets
          }}
-         height='250%'
+         height="200"
          />
         </div>
     )

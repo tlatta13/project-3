@@ -44,7 +44,7 @@ render(){
              datasets: this.state.datasets
          }}
 
-         height='250%'
+         height='200%'
          />
         </div>
     )
