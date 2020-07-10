@@ -1,55 +1,129 @@
-import React, {Component} from 'react'
-import {Bar} from 'react-chartjs-2'
+import React, { Component } from "react";
+import { Bar } from "react-chartjs-2";
+import authContext from "../../contexts/AuthContext";
+import API from "../../lib/API";
 
 class MonthlyBar extends Component {
+  static contextType = authContext;
 
-    colors =[
-        "#003f5c",
-        "#2f4b7c",
-        "#665191",
-        "#a05195",
-        "#d45087",
-        "#f95d6a",
-        "#ff7c43",
-        "ffa600",
-        "#003f5c",
-        "#2f4b7c",
-        "#665191",
-        "#a05195",
-        "#d45087",
-        "#f95d6a",
-        "#ff7c43",
-        "ffa600"
-      ]
+  state = {};
 
-    constructor(props){
-        super(props)
-        this.state={
-            labels: ["Income", "Expenses", "Savings"],
-            datasets: [{
-            label:'Chart',
-            data:[3250, 1650, 1500],
-            backgroundColor: this.colors
-        }]
-    }
- }
+  componentDidMount() {
+    let totalExpense = 0;
+    let totalIncome = 0;
+    let totalSavings = 0;
+    API.Expense.getAll(this.context.authToken)
+      .then((res) => {
+        console.log(res.data,"expense");
 
-render(){
+        res.data.forEach((expense) => {
+          totalExpense += expense.amount;
+        });
+
+        this.setState({
+          expenses: res.data.expenses,
+        });
+
+        API.Income.getAll(this.context.authToken)
+          .then((res) => {
+            console.log(res.data,"income");
+            res.data.forEach((income) => {
+              totalIncome += income.amount;
+            });
+            this.setState({
+              incomes: res.data.incomes,
+            });
+
+            API.Savings.getAll(this.context.authToken)
+              .then((res) => {
+                console.log(res.data,"Savings");
+                res.data.forEach((savings) => {
+                  totalSavings += savings.amount;
+                });
+
+
+                
+
+                console.log(totalExpense, totalIncome, totalSavings)
+                this.setState({
+                  savings: res.data.savings,
+                  datasets: [
+                      { label: "Chart",
+                          data:[totalExpense,totalIncome,totalSavings],
+                          backgroundColor: this.colors
+
+                      }
+                  ]
+                  
+                });
+              })
+              .catch((err) => console.log(err));
+          })
+          .catch((err) => console.log(err));
+      })
+      .catch((err) => console.log(err));
+  }
+
+  colors = [
+    "#003f5c",
+    "#2f4b7c",
+    "#665191",
+    "#a05195",
+    "#d45087",
+    "#f95d6a",
+    "#ff7c43",
+    "ffa600",
+    "#003f5c",
+    "#2f4b7c",
+    "#665191",
+    "#a05195",
+    "#d45087",
+    "#f95d6a",
+    "#ff7c43",
+    "ffa600",
+  ];
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      labels: ["Income", "Expenses", "Savings"],
+      datasets: [
+        {
+          label: "Chart",
+          data: [],
+          backgroundColor: this.colors,
+        },
+      ],
+      
+      expenses: [],
+      incomes: [],
+      savings: [],
+    };
+  }
+
+  render() {
     return (
-        <div>
+      <div>
         <p className="text center">Income, Expenses, and Savings</p>
-        <Bar 
-         data={{
-             labels: this.state.labels,
-             datasets: this.state.datasets
-         }}
-
-         height='200%'
-         />
-        </div>
-    )
+        <Bar
+          data={{
+            labels: this.state.labels,
+            datasets: this.state.datasets,
+          }}
+          options={{
+            scales: {
+              yAxes: [{
+                ticks: {
+                  beginAtZero: true
+                }
+              }]
+            }
+          }}
+          height={200}
+        />
+      </div>
+    );
   }
 }
 
-
-export default MonthlyBar
+export default MonthlyBar;

@@ -32,7 +32,7 @@ export default {
   // Get all expenses
   Expense: {
     getAll: function (authToken) {
-      return axios.getAll('/api/expense', {
+      return axios.get('/api/expense', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
