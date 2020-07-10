@@ -49,7 +49,7 @@ class MonthlyBar extends Component {
                   savings: res.data.savings,
                   datasets: [
                       { label: "Chart",
-                          data:[totalExpense,totalIncome,totalSavings],
+                          data:[totalIncome,totalExpense,totalSavings],
                           backgroundColor: this.colors
 
                       }
