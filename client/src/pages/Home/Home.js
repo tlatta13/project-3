@@ -26,8 +26,7 @@ class HomePage extends Component {
                             </>
                         )}
                     </Ticker>  
-                    {/* <View stlye={{flex:1}}>
-                    {React_API_Key}</View> */}
+                    
                     
                     <img
                         src='https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg'
