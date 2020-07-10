@@ -12,3 +12,7 @@
 .info-card{
     background-color: rgb(102, 3, 3);
 }
+
+p {
+    font-family: Arial, Helvetica, sans-serif;
+}
