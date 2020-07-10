@@ -5,7 +5,8 @@ import img2 from "../../assets/images/Piggy-Bank-on-money-250x250.jpg";
 import img3 from "../../assets/images/summaries.png";
 import img4 from "../../assets/images/chart.png";
 import { Link } from "react-router-dom";
-import Ticker from 'react-ticker'
+import Ticker from 'react-ticker';
+
 //import { Parallax, ParallaxProvider } from "react-scroll-parallax";
 /* main:{
     'fontFamily': 'Arial, Helvetica, sans-serif'
@@ -17,9 +18,14 @@ class HomePage extends Component {
         return (
             <div>
                 <div className='container'>
-                    
-                    {/* <View stlye={{flex:1}}>
-                    {React_API_Key}</View> */}
+                    <Ticker>
+                        {({ index }) => (
+                            <>
+                                <h1>This is the Headline of element #{index}!</h1>
+                                <img src="www.my-image-source.com/" alt="" />
+                            </>
+                        )}
+                    </Ticker>  
                     
                     <img
                         src='https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg'
@@ -90,6 +96,7 @@ class HomePage extends Component {
                             <div className='card-body'>
                                 <h5 className='card-title'>Graphs and Reports</h5>
                                 <p className='card-text'>
+                                    
                                     Track your budget with customized charts and reports.
                                 </p>
                             </div>
