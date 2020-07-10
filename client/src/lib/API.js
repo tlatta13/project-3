@@ -52,7 +52,7 @@ export default {
   // Get all income
   Income: {
     getAll: function (authToken) {
-      return axios.getAll('/api/income.getAll', {
+      return axios.get('/api/income', {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
