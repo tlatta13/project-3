@@ -26,4 +26,4 @@ stockController.get("/", (req, res) => {
 
 
 
-module.exports = stockController
+module.exports = stockController;
