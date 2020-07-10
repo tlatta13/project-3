@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
+import API from "../../lib/API";
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
@@ -17,8 +18,23 @@ const Income = (props) => {
     props.close();
   };
 
+  // handleInputChange = (event) => {
+  //   const { } = event.target;
+
+  //   this.setState({ })
+  // }
+
   const submitHandler = (event) => {
     event.preventDefault();
+
+    API.Income.post(localStorage.getItem('token'),{
+      date: date,
+      category: category,
+      amount: income,
+      comment: comment,
+    })
+      .then((income) => {console.log('this is income just saved', income)})
+      .catch((err) => {console.log('this is our err', err)});
     console.log({
       date: date,
       category: category,

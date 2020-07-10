@@ -11,6 +11,7 @@ const handleError = (err, res) => {
 // POST /api/income
 IncomeController.post('/', JWTVerifier, (req, res) => {
     // add new income
+    console.log('WE R ABOUT TO POST NEW INCOME', req.body)
     req.user.incomes.push(
         {
             date: req.body.date,
@@ -29,31 +30,44 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
 
 // GET /api/income
 IncomeController.get('/', JWTVerifier, (req, res) => {
-    console.log('test test')
     // get all income
+    console.log('test test')
+    let userId = mongoose.Types.ObjectId("5f05fe732ed9bfd2551c4cbe")
+
+    db.Incomes.findAll({ where: { UserId: req.user.id }})
+        .then((incomes) => res.json(incomes))
+        .catch((err) => res.status(500).json(err));
+
+    
     // res.json(req.user.incomes); working route
-    res.json(
-        [
-            {
-                date: "06/1/2020",
-                category: "Paycheck",
-                amount: 4000 ,
-                comment: ""
-            },
-            {
-                date: "06/10/2020",
-                category: "Gift",
-                amount: 500 ,
-                comment: "Birthday gift from Mom"
-            },
-            {
-                date: "06/8/2020",
-                category: "Commission",
-                amount: 800 ,
-                comment: "July sales commission"
-            }
-        ]
-    )
+    // res.json(
+    //     [
+    //         {
+    //             date: "06/1/2020",
+    //             category: "Paycheck",
+    //             amount: 4000 ,
+    //             comment: ""
+    //         },
+    //         {
+    //             date: "06/10/2020",
+    //             category: "Gift",
+    //             amount: 500 ,
+    //             comment: "Birthday gift from Mom"
+    //         },
+    //         {
+    //             date: "06/8/2020",
+    //             category: "Commission",
+    //             amount: 800 ,
+    //             comment: "July sales commission"
+    //         },
+    //         {
+    //             date: "06/8/2020",
+    //             category: "Commission",
+    //             amount: 800 ,
+    //             comment: "July sales commission"
+    //         }
+    //     ]
+    // )
 })
 
 // GET /api/income/:id
