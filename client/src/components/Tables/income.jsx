@@ -1,7 +1,10 @@
 import React, { Component } from "react";
-
+import API from "../../lib/API"
+import authContext from '../../contexts/AuthContext'
 
 class IncomeTable extends Component {
+    static contextType = authContext;
+
     state = {
         incomes: [],
         filteredIncomes: [],
@@ -9,7 +12,15 @@ class IncomeTable extends Component {
     };
 
     componentDidMount() {
-
+        API.Income.getAll(this.context.authToken)
+        .then(res => {
+            console.log(res)
+           this.setState({
+            incomes: res.data,
+            filteredIncomes: res.data
+        })
+    })
+        .catch(err => console.log(err));
     }
 
     sortByDate = () => {
@@ -66,18 +77,20 @@ class IncomeTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
+                    
                     {/* Map over incomes to display all */}
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {this.state.incomes.map((result) => (
+                        <tr key={result._id}>
+                            <td>{ result.date }</td>
+                            <td>{ result.category }</td>
+                            <td>{ result.amount }</td>
+                            <td>{ result.comment }</td>
+                        </tr>
+                    ))}
                 </tbody>
             </table>
         )
     }
-
 }
 
 export default IncomeTable
