@@ -29,6 +29,7 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
 
 // GET /api/income
 IncomeController.get('/', JWTVerifier, (req, res) => {
+    console.log('test test')
     // get all income
     // res.json(req.user.incomes); working route
     res.json(
