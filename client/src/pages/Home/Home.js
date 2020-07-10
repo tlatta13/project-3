@@ -27,7 +27,6 @@ class HomePage extends Component {
                         )}
                     </Ticker>  
                     
-                    
                     <img
                         src='https://www.altran.com/as-content/uploads/sites/4/2017/05/5-0_finance_1600.jpg'
                         className='card-img-top shadow'
