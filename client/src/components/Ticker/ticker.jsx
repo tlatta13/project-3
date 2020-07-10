@@ -4,7 +4,8 @@ import Ticker from 'react-ticker';
 import dummyAPI from './practice.json'
 import Stocks from '../Stocks'
 const style = {
-  'fontFamily': 'Arial, Helvetica, sans-serif'
+  'fontFamily': 'Arial, Helvetica, sans-serif',
+  'font-size': 'xx-large'
 }
 
 
