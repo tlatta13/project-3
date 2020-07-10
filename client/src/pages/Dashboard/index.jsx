@@ -42,40 +42,58 @@ const Dashboard = () => {
   const userInfo = useContext(AuthContext);
 
   const style = {
-    buttons: {
+    buttonsDiv: {
       display: "flex",
       justifyContent: "center",
     },
+    incomeButton: {
+      backgroundColor: "green"
+    },
+    expenseButton: {
+      backgroundColor: "red"
+    }
   };
   return (
     <div className="class" style={customStyles.main}>
-    
-      <h1 className="text-center text-light my-3">
-        <div style={{color:"blue"}}>
-        Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
+      <div className="container bg-light border-0 rounded my-4">
+        <h3 className="text-center text-light mb-3 pt-4">
+          <div style={{color:"black"}}>
+          Welcome {userInfo.user ? userInfo.user.email : null}!{" "}
+          </div>
+        </h3>
+        <div style={style.buttonsDiv}>
+          <button
+            style={style.incomeButton}
+            className="income btn btn-secondary mr-1 mb-4"
+            onClick={() => openModal("income")}>
+              Add Income
+          </button>
+          <button 
+            style={style.incomeButton}
+            className="expense btn btn-secondary mx-2 mb-4" 
+            onClick={()=>openModal('savings')}>
+              Add Savings
+          </button>
+          <button 
+            style={style.expenseButton}
+            className="expense btn btn-secondary ml-1 mb-4" 
+            onClick={()=>openModal('expense')}>
+              Add Expense
+          </button>
         </div>
-      </h1>
-      <div style={style.buttons}>
-        <button
-          className="income btn btn-secondary mr=3"
-          onClick={() => openModal("income")}>
-          Add Income
-        </button>
-        <button className="expense btn btn-secondary ml-3" 
-        onClick={()=>openModal('expense')}>
-          Add Expense
-        </button>
       </div>
-      <div className="container">
+
+      {/* Graphs Container */}
+      <div className="container bg-light border-0 rounded my-4">
         <div className="row">
           <div
-            className="col-sm d-flex flex-column justify-content-center"
+            className="col-sm d-flex flex-column justify-content-center my-3"
             style={{ height: 500 }}
           >
              <MonthlyBar />
           </div>
           <div
-            className="col-sm d-flex flex-column justify-content-center"
+            className="col-sm d-flex flex-column justify-content-center my-3"
             style={{ height: 500 }}
           >
             <PieChart />
@@ -83,6 +101,7 @@ const Dashboard = () => {
         </div>
       </div>
       
+      {/* Modals */}
       <Modal Income
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
@@ -93,6 +112,24 @@ const Dashboard = () => {
         {modalContent === "income" ? <Income close={closeModal} /> :<Expense close={closeModal} />}
         </Modal>
 
+      {/* Income Savings and Expense Tables */}
+      <div className="container bg-light border-0 rounded my-4">
+        <h3 className="text-center mb-3 py-4">
+          Income Table
+        </h3>
+      </div>
+
+      <div className="container bg-light border-0 rounded my-4">
+        <h3 className="text-center mb-3 py-4">
+          Savings Table
+        </h3>
+      </div>
+
+      <div className="container bg-light border-0 rounded my-4">
+        <h3 className="text-center mb-3 py-4">
+          Expense Table
+        </h3>
+      </div>
     </div>
   );
 };
