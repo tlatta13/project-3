@@ -8,7 +8,7 @@ const Stocks = props => {
     else setCount(curr => curr + 1)
     const stock = props.tickerInfo.marketSummaryResponse.result[count]
     return (<>
-      {stock.fullExchangeName}
+      {stock.symbol}
       {
         Math.sign(stock.regularMarketChangePercent.raw) === 1 ? (
           <span className="text-success mr-3"> {stock.regularMarketChangePercent.fmt} </span>
