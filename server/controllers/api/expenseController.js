@@ -31,7 +31,8 @@ ExpenseController.post('/', JWTVerifier, async (req, res) => {
 // GET /api/expense
 ExpenseController.get('/', JWTVerifier, (req, res) => {
     // get all expenses
-    // res.json(req.user.expenses);
+    // res.json(req.user.expenses); working get route
+    
     res.json(
         [
             {
@@ -57,8 +58,10 @@ ExpenseController.get('/', JWTVerifier, (req, res) => {
 })
 
 // Update Expense - May not need
-ExpenseController.get('/:id', ({body, params}, res) => {
+ExpenseController.get('/', ({body, params}, res) => {
     // update expense
+    //db.Expense.find({})
+
 })
 
 // Delete Expense
