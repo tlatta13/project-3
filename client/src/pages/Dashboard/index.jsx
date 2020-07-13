@@ -1,14 +1,14 @@
 import React, { useContext, useState, useEffect } from "react";
 import AuthContext from "../../contexts/AuthContext";
 import Modal from "react-modal";
-import Income from "../../components/Income";
-import Expense from "../../components/Expense";
 import MonthlyBar from "../../components/Charts/monthlybar";
 import PieChart from "../../components/Charts/piechart";
+import Income from "../../components/Income";
+import Expense from "../../components/Expense";
+import Savings from "../../components/Savings";
 import IncomeTable from "../../components/Tables/income";
 import ExpenseTable from "../../components/Tables/expense";
 import SavingsTable from "../../components/Tables/savings";
-import Savings from "../../components/Savings";
 import API from "../../lib/API"
 
 const customStyles = {
@@ -27,7 +27,6 @@ const customStyles = {
 };
 const Dashboard = () => {
   const auth = useContext(AuthContext)
-  // Modal Info Start
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
   const [expensesTable, setExpensesTable] = useState([])
@@ -40,12 +39,14 @@ const Dashboard = () => {
     setModalContent(contents);
     setIsOpen(true);
   };
+
   useEffect(() => {
     Modal.setAppElement("body")
     getLatestExpenses()
     getLatestSavings()
     getLatestIncome();
   }, []);
+
   const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
     // subtitle.style.color = '#f00';
@@ -54,6 +55,8 @@ const Dashboard = () => {
   const closeModal = () => {
     setIsOpen(false);
   };
+  
+  // get all expenses
   const getLatestExpenses = () => {
     API.Expense.getAll(auth.authToken)
       .then(res => {
@@ -63,6 +66,7 @@ const Dashboard = () => {
       })
   }
   
+  // get all savings
   const getLatestSavings = () => {
     API.Savings.getAll(auth.authToken)
       .then(res => {
@@ -72,7 +76,7 @@ const Dashboard = () => {
       })
   }
   
-
+  // get all income
   const getLatestIncome = () => {
     API.Income.getAll(auth.authToken)
       .then(res => {
@@ -84,6 +88,7 @@ const Dashboard = () => {
 
   const userInfo = useContext(AuthContext);
 
+  // Button style for adding income, expense, savings
   const style = {
     buttonsDiv: {
       display: "flex",
@@ -96,7 +101,6 @@ const Dashboard = () => {
       backgroundColor: "red",
     },
   };
-  // Modal Info End
 
   return (
     <div className="class" style={customStyles.main}>
@@ -157,7 +161,7 @@ const Dashboard = () => {
       >
         {modalContent === "income" ? <Income close={closeModal} getLatestIncome={getLatestIncome} /> :
           modalContent === "expense" ? <Expense close={closeModal} getLatestExpenses={getLatestExpenses} /> :
-            <Savings close={closeModal} />}
+            <Savings close={closeModal} getLatestSavings={getLatestSavings}/>}
       </Modal>
 
       {/* Income Savings and Expense Tables */}

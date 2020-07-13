@@ -10,27 +10,15 @@ class SavingsTable extends Component {
         //filteredSavings: [],
         order: ""
     };
-
-    // componentDidMount() {
-    //     API.Savings.getAll(this.context.authToken)
-    //     .then(res => {
-    //         console.log(res)
-    //         this.setState({
-    //         savings: res.data,
-    //         filteredSavings: res.data
-    //     })
-    // })
-    //     .catch(err => console.log(err));
-    // }
-
+// changed line 15
     sortByDate = () => {
-        const filterSavings = this.state.filteredSavings;
+        const filterSavings = this.state.filteredSavingsTable;
         if (this.state.order === "desc") {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? -1 : 1);
                 this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                filteredSavings: sortSavings,
+                // filteredSavings: sortSavings,
                 order: "asc"
             });
         } else {
@@ -45,13 +33,13 @@ class SavingsTable extends Component {
     };
 
     sortByCategory = () => {
-        const filterSavings = this.state.filteredIncomes;
+        const filterSavings = this.state.filteredSavingsTable;
         if (this.state.order === "desc") {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.category > b.category) ? -1 : 1);
             this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                filteredIncomes: sortSavings,
+                // filteredIncomes: sortSavings,
                 order: "asc"
             });
         } else {
@@ -59,7 +47,7 @@ class SavingsTable extends Component {
                 (a.category > b.category) ? 1 : -1);
             this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                filteredSavings: sortSavings,
+                // filteredSavings: sortSavings,
                 order: "desc"
             });
         };
