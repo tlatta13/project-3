@@ -30,29 +30,29 @@ SavingsController.post('/', JWTVerifier, (req, res) => {
 // GET /api/income
 SavingsController.get('/', JWTVerifier, (req, res) => {
     // get all income
-    // res.json(req.user.savings); working route
-    res.json(
-        [
-            {
-                date: "06/30/2020",
-                category: "Savings",
-                amount: 200 ,
-                comment: ""
-            },
-            {
-                date: "05/30/2020",
-                category: "Savings",
-                amount: 200 ,
-                comment: ""
-            },
-            {
-                date: "04/30/2020",
-                category: "Savings",
-                amount: 300 ,
-                comment: "July sales commission"
-            }
-        ]
-    )
+    res.json(req.user.savings);
+    // res.json(
+    //     [
+    //         {
+    //             date: "06/30/2020",
+    //             category: "Savings",
+    //             amount: 200 ,
+    //             comment: ""
+    //         },
+    //         {
+    //             date: "05/30/2020",
+    //             category: "Savings",
+    //             amount: 200 ,
+    //             comment: ""
+    //         },
+    //         {
+    //             date: "04/30/2020",
+    //             category: "Savings",
+    //             amount: 300 ,
+    //             comment: "July sales commission"
+    //         }
+    //     ]
+    // )
 })
 
 // GET /api/income/:id

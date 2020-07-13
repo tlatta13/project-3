@@ -67,7 +67,7 @@ class PieChart extends Component {
 render(){
     return (
         <div>
-        <p className="text-center">Expenses Chart</p>
+        <p className="text-center">Expense Breakdown</p>
         <Pie
          data={{
              labels: this.state.labels,

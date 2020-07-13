@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
+import API from "../../lib/API"
+import AuthContext from '../../contexts/AuthContext'
 
 import "react-datepicker/dist/react-datepicker.css";
 const customStyles = {
@@ -7,7 +9,8 @@ const customStyles = {
         'font-family': 'Arial, Helvetica, sans-serif'
     }
   };
-  const Expense = (props) => {
+const Expense = (props) => {
+  const { authToken } = useContext(AuthContext);
   const [expense, setExpense] = useState(0);
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState("");
@@ -19,6 +22,14 @@ const customStyles = {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
+    API.Expense.post(authToken, {
+      date: date,
+      category: category,
+      amount: expense,
+      comment: comment,
+    })
+
     console.log({
       date: date,
       category: category,

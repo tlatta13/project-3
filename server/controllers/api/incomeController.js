@@ -30,11 +30,29 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
 // GET /api/income
 IncomeController.get('/', JWTVerifier, (req, res) => {
     // get all income
-    let userId = mongoose.Types.ObjectId("5f05fe732ed9bfd2551c4cbe")
-
-    db.Incomes.findAll({ where: { UserId: req.user.id }})
-        .then((incomes) => res.json(incomes))
-        .catch((err) => res.status(500).json(err));
+    res.json(req.user.incomes);
+    // res.json(
+    //     [
+    //         {
+    //             date: "06/1/2020",
+    //             category: "Paycheck",
+    //             amount: 4000 ,
+    //             comment: ""
+    //         },
+    //         {
+    //             date: "06/10/2020",
+    //             category: "Gift",
+    //             amount: 500 ,
+    //             comment: "Birthday gift from Mom"
+    //         },
+    //         {
+    //             date: "06/8/2020",
+    //             category: "Commission",
+    //             amount: 800 ,
+    //             comment: "July sales commission"
+    //         }
+    //     ]
+    // )
 })
 
 // GET /api/income/:id

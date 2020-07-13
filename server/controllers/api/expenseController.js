@@ -34,33 +34,49 @@ ExpenseController.get('/', JWTVerifier, (req, res) => {
     //db.expense.findAll
 
     // get all expenses
+    res.json(req.user.expenses);
     
-    // res.json(req.user.expenses); working get route
-
-    
-    res.json(
-        [
-            {
-                date: "06/1/2020",
-                category: "Mortgage",
-                amount: 1200 ,
-                comment: "Paid extra this month"
-            },
-            {
-                date: "06/5/2020",
-                category: "Car Lease",
-                amount: 350 ,
-                comment: ""
-            },
-            {
-                date: "06/8/2020",
-                category: "Car Insurance",
-                amount: 120 ,
-                comment: "Received a rona discount"
-            }
-        ]
-    )
-
+    // res.json(
+    //     [
+    //         {
+    //             date: "06/1/2020",
+    //             category: "Mortgage",
+    //             amount: 1200 ,
+    //             comment: "Paid extra this month"
+    //         },
+    //         {
+    //             date: "06/5/2020",
+    //             category: "Car Lease",
+    //             amount: 350 ,
+    //             comment: ""
+    //         },
+    //         {
+    //             date: "06/17/2020",
+    //             category: "Car Insurance",
+    //             amount: 120 ,
+    //             comment: "Received a rona discount"
+    //         }
+    //         ,
+    //         {
+    //             date: "06/23/2020",
+    //             category: "Health & Wellness",
+    //             amount: 200 ,
+    //             comment: "Dentist Appt."
+    //         },
+    //         {
+    //             date: "06/15/2020",
+    //             category: "Home",
+    //             amount: 120 ,
+    //             comment: "Window Cleaning"
+    //         },
+    //         {
+    //             date: "06/12/2020",
+    //             category: "Food & Dining",
+    //             amount: 65 ,
+    //             comment: "Dinner with friends"
+    //         }
+    //     ]
+    // )
 })
 
 // Update Expense - May not need

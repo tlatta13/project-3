@@ -115,18 +115,15 @@ const Dashboard = () => {
         style={customStyles}
         contentLabel="Income Modal"
       >
-        {modalContent === "income" ? <Income close={closeModal} /> :<Expense close={closeModal} , <savings close={closeModal} />}
+        {modalContent === "income" ? <Income close={closeModal} /> :<Expense close={closeModal} />}
         </Modal>
 
       {/* Income Savings and Expense Tables */}
       <div className="container bg-light border-0 rounded my-4">
-        <h3 className="text-center mb-3 pt-4">
+        <h3 className="text-center py-4">
           Income
         </h3>
         <IncomeTable
-          // incomes={this.state.filteredIncomes}
-          // sortByDate={this.sortByDate}
-          // sortByCategory={this.sortByCategory}
         />
       </div>
 
@@ -135,9 +132,6 @@ const Dashboard = () => {
           Savings
         </h3>
         <SavingsTable
-          // incomes={this.state.filteredIncomes}
-          // sortByDate={this.sortByDate}
-          // sortByCategory={this.sortByCategory}
         />
       </div>
 
@@ -146,9 +140,6 @@ const Dashboard = () => {
           Expenses
         </h3>
         <ExpenseTable
-          // incomes={this.state.filteredIncomes}
-          // sortByDate={this.sortByDate}
-          // sortByCategory={this.sortByCategory}
         />
       </div>
     </div>
