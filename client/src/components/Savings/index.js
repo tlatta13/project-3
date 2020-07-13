@@ -1,13 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useContext  } from "react";
 import DatePicker from "react-datepicker";
-
 import "react-datepicker/dist/react-datepicker.css";
+import API from "../../lib/API";
+import AuthContext from '../../contexts/AuthContext';
+
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
     }
   };
 const Savings = (props) => {
+  const { authToken } = useContext(AuthContext);
   const [savings, setSavings] = useState(0);
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState("");
@@ -19,12 +22,28 @@ const Savings = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    console.log({
+    API.Savings.post(authToken, {
       date: date,
       category: category,
       amount: savings,
-      comment: comment
-    });
+      comment: comment,
+    })
+    .then(()=>{
+      props.getLatestSavings()
+      console.log({
+        date: date,
+        category: category,
+        amount: savings,
+        comment: comment
+      });
+      props.close()
+    })
+    // console.log({
+    //   date: date,
+    //   category: category,
+    //   amount: savings,
+    //   comment: comment
+    // });
     props.close()
   };
 

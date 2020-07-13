@@ -33,6 +33,8 @@ const Dashboard = () => {
   const [modalContent, setModalContent] = useState("");
   const [expensesTable, setExpensesTable] = useState([])
   const [filteredExpensesTable, setFilteredExpensesTable] = useState([])
+  const [savingsTable, setSavingsTable] = useState([])
+  const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -40,6 +42,7 @@ const Dashboard = () => {
   useEffect(() => {
     Modal.setAppElement("body")
     getLatestExpenses()
+    getLatestSavings()
   }, []);
   const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
@@ -57,6 +60,16 @@ const Dashboard = () => {
         setFilteredExpensesTable(res.data)
       })
   }
+  
+  const getLatestSavings = () => {
+    API.Savings.getAll(auth.authToken)
+      .then(res => {
+        console.log(res)
+        setSavingsTable(res.data)
+        setFilteredSavingsTable(res.data)
+      })
+  }
+  
   const userInfo = useContext(AuthContext);
 
   const style = {
@@ -148,6 +161,10 @@ const Dashboard = () => {
           Savings
         </h3>
         <SavingsTable
+        setSavingsTable={setSavingsTable}
+        savingsTable={savingsTable}
+        setFilteredSavingsTable={setFilteredSavingsTable}
+        filteredSavingsTable={filteredSavingsTable}
         />
       </div>
 

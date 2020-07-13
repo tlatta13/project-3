@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import API from "../../lib/API"
 import AuthContext from '../../contexts/AuthContext'
-
 import "react-datepicker/dist/react-datepicker.css";
+
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'

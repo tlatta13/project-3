@@ -6,29 +6,29 @@ class SavingsTable extends Component {
     static contextType = authContext;
 
     state = {
-        savings: [],
-        filteredSavings: [],
+        //savings: [],
+        //filteredSavings: [],
         order: ""
     };
 
-    componentDidMount() {
-        API.Savings.getAll(this.context.authToken)
-        .then(res => {
-            console.log(res)
-            this.setState({
-            savings: res.data,
-            filteredSavings: res.data
-        })
-    })
-        .catch(err => console.log(err));
-    }
+    // componentDidMount() {
+    //     API.Savings.getAll(this.context.authToken)
+    //     .then(res => {
+    //         console.log(res)
+    //         this.setState({
+    //         savings: res.data,
+    //         filteredSavings: res.data
+    //     })
+    // })
+    //     .catch(err => console.log(err));
+    // }
 
     sortByDate = () => {
         const filterSavings = this.state.filteredSavings;
         if (this.state.order === "desc") {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? -1 : 1);
-            
+                this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
                 filteredSavings: sortSavings,
                 order: "asc"
@@ -36,9 +36,9 @@ class SavingsTable extends Component {
         } else {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? 1 : -1);
-    
+                this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                filteredIncomes: sortSavings,
+                //filteredIncomes: sortSavings,
                 order: "desc"
             });
         };
@@ -49,7 +49,7 @@ class SavingsTable extends Component {
         if (this.state.order === "desc") {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.category > b.category) ? -1 : 1);
-            
+            this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
                 filteredIncomes: sortSavings,
                 order: "asc"
@@ -57,7 +57,7 @@ class SavingsTable extends Component {
         } else {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.category > b.category) ? 1 : -1);
-    
+            this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
                 filteredSavings: sortSavings,
                 order: "desc"
@@ -79,7 +79,7 @@ class SavingsTable extends Component {
                 <tbody>
                     
                     {/* Map over savings to display all */}
-                    {this.state.savings.map((result) => (
+                    {this.props.savingsTable.map((result) => (
                         <tr key={result._id}>
                             <td>{ result.date }</td>
                             <td>{ result.category }</td>
