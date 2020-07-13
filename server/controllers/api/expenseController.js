@@ -33,7 +33,6 @@ ExpenseController.get('/', JWTVerifier, (req, res) => {
     // get all expenses
     // res.json(req.user.expenses); working get route
     
-    
     res.json(
         [
             {
