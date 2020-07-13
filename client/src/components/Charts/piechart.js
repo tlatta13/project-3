@@ -57,7 +57,7 @@ class PieChart extends Component {
         this.state={
             labels: [],
             datasets: [{
-            data:[815, 400, 75],
+            data:[],
             backgroundColor: this.colors
         }],
         expenses: []
