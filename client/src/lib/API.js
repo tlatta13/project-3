@@ -76,11 +76,10 @@ export default {
       });
     },
     post: function (authToken,savings) {
-      return axios.post('/api/savings', {
+      return axios.post('/api/savings', savings, {
         headers: {
           'Authorization': `Bearer ${authToken}`
-        },
-        savings
+        }
         });
     }
   },

@@ -6,64 +6,71 @@ class ExpenseTable extends Component {
     static contextType = authContext;
 
     state = {
-        expenses: [],
-        filteredExpenses: [],
+        // expenses: [],
+        // filteredExpenses: [],
         order: ""
     };
 
-    componentDidMount() {
-        API.Expense.getAll(this.context.authToken)
-        .then(res => {
-            console.log(res)
-            this.setState({
-            expenses: res.data,
-            filteredExpenses: res.data
-        })
-    })
-        .catch(err => console.log(err));
-    }
+    // componentDidMount() {
+    //     this.getLastestExpenses()
+    // }
+
+    // getLastestExpenses =()=>{
+    //     API.Expense.getAll(this.context.authToken)
+    //     .then(res => {
+    //         console.log(res)
+    //         this.setState({
+    //         expenses: res.data,
+    //         filteredExpenses: res.data
+    //     })
+    // })
+    //     .catch(err => console.log(err));
+    // }
 
     sortByDate = () => {
-        const filterExpenses = this.state.filteredExpenses;
+        const filterExpenses = this.props.filteredExpensesTable;
         if (this.state.order === "desc") {
-            const sortExpenses = filterExpenses.sort((a, b) => 
+            const sortExpenses = filterExpenses.sort((a, b) =>
                 (a.date > b.date) ? -1 : 1);
-            
+            this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                filteredExpenses: sortExpenses,
+                // filteredExpenses: sortExpenses,
                 order: "asc"
             });
         } else {
-            const sortExpenses = filterExpenses.sort((a, b) => 
+            const sortExpenses = filterExpenses.sort((a, b) =>
                 (a.date > b.date) ? 1 : -1);
-    
+            this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                filteredExpenses: sortExpenses,
+                //filteredExpenses: sortExpenses,
                 order: "desc"
             });
         };
     };
 
     sortByCategory = () => {
-        const filterExpenses = this.state.filteredExpenses;
+        const filterExpenses = this.props.filteredExpensesTable;
         if (this.state.order === "desc") {
-            const sortExpenses = filterExpenses.sort((a, b) => 
+            const sortExpenses = filterExpenses.sort((a, b) =>
                 (a.category > b.category) ? -1 : 1);
-            
+
+            this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                filteredExpenses: sortExpenses,
+                // filteredExpenses: sortExpenses,
                 order: "asc"
             });
         } else {
-            const sortExpenses = filterExpenses.sort((a, b) => 
+            const sortExpenses = filterExpenses.sort((a, b) =>
                 (a.category > b.category) ? 1 : -1);
-    
+
+            this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                filteredExpenses: sortExpenses,
+                //filteredExpenses: sortExpenses,
                 order: "desc"
             });
         };
     };
+
 
     render() {
         return (
@@ -77,14 +84,14 @@ class ExpenseTable extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    
+
                     {/* Map over incomes to display all */}
-                    {this.state.expenses.map((result) => (
+                    {this.props.expensesTable.map((result) => (
                         <tr key={result._id}>
-                            <td>{ result.date }</td>
-                            <td>{ result.category }</td>
-                            <td>{ result.amount }</td>
-                            <td>{ result.comment }</td>
+                            <td>{result.date}</td>
+                            <td>{result.category}</td>
+                            <td>{result.amount}</td>
+                            <td>{result.comment}</td>
                         </tr>
                     ))}
                 </tbody>

@@ -9,6 +9,7 @@ import IncomeTable from "../../components/Tables/income";
 import ExpenseTable from "../../components/Tables/expense";
 import SavingsTable from "../../components/Tables/savings";
 import Savings from "../../components/Savings";
+import API from "../../lib/API"
 
 const customStyles = {
   content: {
@@ -20,26 +21,53 @@ const customStyles = {
     transform: "translate(-50%, -50%)",
   },
   main: {
-    fontFamily: "Arial, Helvetica, sans-serif",
-  },
+    'fontFamily': 'Arial, Helvetica, sans-serif'
+
+  }
 };
 const Dashboard = () => {
+  const auth = useContext(AuthContext)
   // Modal Info Start
   const [modalIsOpen, setIsOpen] = useState(false);
   const [modalContent, setModalContent] = useState("");
+  const [expensesTable, setExpensesTable] = useState([])
+  const [filteredExpensesTable, setFilteredExpensesTable] = useState([])
+  const [incomeTable, setIncomeTable] = useState([])
+  const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
   };
-  useEffect(() => Modal.setAppElement("body"));
+  useEffect(() => {
+    Modal.setAppElement("body")
+    getLatestExpenses();
+    getLatestIncome();
+  }, []);
   const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
     // subtitle.style.color = '#f00';
   };
-
+ 
   const closeModal = () => {
     setIsOpen(false);
   };
+  const getLatestExpenses = () => {
+    API.Expense.getAll(auth.authToken)
+      .then(res => {
+        console.log(res)
+        setExpensesTable(res.data)
+        setFilteredExpensesTable(res.data)
+      })
+  }
+
+  const getLatestIncome = () => {
+    API.Income.getAll(auth.authToken)
+      .then(res => {
+        console.log(res)
+        setIncomeTable(res.data)
+        setFilteredIncomeTable(res.data)
+      })
+  }
 
   const userInfo = useContext(AuthContext);
 
@@ -69,22 +97,19 @@ const Dashboard = () => {
           <button
             style={style.incomeButton}
             className="income btn btn-secondary mr-1 mb-4"
-            onClick={() => openModal("income")}
-          >
+            onClick={() => openModal("income")}>
             Add Income
           </button>
           <button
             style={style.incomeButton}
             className="expense btn btn-secondary mx-2 mb-4"
-            onClick={() => openModal("savings")}
-          >
+            onClick={() => openModal('savings')}>
             Add Savings
           </button>
           <button
             style={style.expenseButton}
             className="expense btn btn-secondary ml-1 mb-4"
-            onClick={() => openModal("expense")}
-          >
+            onClick={() => openModal('expense')}>
             Add Expense
           </button>
         </div>
@@ -117,19 +142,20 @@ const Dashboard = () => {
         style={customStyles}
         contentLabel="Income Modal"
       >
-        {modalContent === "income" ? (
-          <Income close={closeModal} />
-        ) : modalContent === "expense" ? (
-          <Expense close={closeModal} />
-        ) : (
-          <Savings close={closeModal} />
-        )}
+        {modalContent === "income" ? <Income close={closeModal} getLatestIncome={getLatestIncome} /> :
+          modalContent === "expense" ? <Expense close={closeModal} getLatestExpenses={getLatestExpenses} /> :
+            <Savings close={closeModal} />}
       </Modal>
 
       {/* Income Savings and Expense Tables */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center py-4">Income</h3>
-        <IncomeTable />
+        <IncomeTable
+          setIncomeTable={setIncomeTable}
+          incomeTable={incomeTable}
+          setFilteredIncomeTable={setFilteredIncomeTable}
+          filteredIncomeTable={filteredIncomeTable}
+        />
       </div>
 
       <div className="container bg-light border-0 rounded my-4">
@@ -138,8 +164,15 @@ const Dashboard = () => {
       </div>
 
       <div className="container bg-light border-0 rounded my-4">
-        <h3 className="text-center mb-3 py-4">Expenses</h3>
-        <ExpenseTable />
+        <h3 className="text-center mb-3 py-4">
+          Expenses
+        </h3>
+        <ExpenseTable
+          setExpensesTable={setExpensesTable}
+          expensesTable={expensesTable}
+          setFilteredExpensesTable={setFilteredExpensesTable}
+          filteredExpensesTable={filteredExpensesTable}
+        />
       </div>
     </div>
   );
