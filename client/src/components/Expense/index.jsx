@@ -9,6 +9,7 @@ const customStyles = {
         'font-family': 'Arial, Helvetica, sans-serif'
     }
   };
+  
 const Expense = (props) => {
   const { authToken } = useContext(AuthContext);
   const [expense, setExpense] = useState(0);
