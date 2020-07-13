@@ -1,7 +1,7 @@
 
 .card-img-top{
     opacity: .90;
-    padding-top: 30px;
+    
 }
 
 .info-card:hover {
@@ -11,6 +11,8 @@
 
 .info-card{
     background-color: rgb(102, 3, 3);
+    height: 400px;
+    width: 100%;
 }
 
 p {

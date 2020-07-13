@@ -24,13 +24,13 @@ class SavingsTable extends Component {
     // }
 
     sortByDate = () => {
-        const filterSavings = this.state.filteredSavings;
+        const filterSavings = this.state.filteredSavingsTable;
         if (this.state.order === "desc") {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? -1 : 1);
                 this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                filteredSavings: sortSavings,
+                // filteredSavings: sortSavings,
                 order: "asc"
             });
         } else {
