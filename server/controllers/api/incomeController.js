@@ -35,37 +35,6 @@ IncomeController.get('/', JWTVerifier, (req, res) => {
     db.Incomes.findAll({ where: { UserId: req.user.id }})
         .then((incomes) => res.json(incomes))
         .catch((err) => res.status(500).json(err));
-
-    
-    // res.json(req.user.incomes); working route
-    // res.json(
-    //     [
-    //         {
-    //             date: "06/1/2020",
-    //             category: "Paycheck",
-    //             amount: 4000 ,
-    //             comment: ""
-    //         },
-    //         {
-    //             date: "06/10/2020",
-    //             category: "Gift",
-    //             amount: 500 ,
-    //             comment: "Birthday gift from Mom"
-    //         },
-    //         {
-    //             date: "06/8/2020",
-    //             category: "Commission",
-    //             amount: 800 ,
-    //             comment: "July sales commission"
-    //         },
-    //         {
-    //             date: "06/8/2020",
-    //             category: "Commission",
-    //             amount: 800 ,
-    //             comment: "July sales commission"
-    //         }
-    //     ]
-    // )
 })
 
 // GET /api/income/:id
