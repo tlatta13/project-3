@@ -30,7 +30,6 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
 // GET /api/income
 IncomeController.get('/', JWTVerifier, (req, res) => {
     // get all income
-    console.log('test test')
     let userId = mongoose.Types.ObjectId("5f05fe732ed9bfd2551c4cbe")
 
     db.Incomes.findAll({ where: { UserId: req.user.id }})
