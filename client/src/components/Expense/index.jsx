@@ -2,8 +2,8 @@ import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import API from "../../lib/API"
 import AuthContext from '../../contexts/AuthContext'
-
 import "react-datepicker/dist/react-datepicker.css";
+
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
@@ -29,14 +29,16 @@ const Expense = (props) => {
       amount: expense,
       comment: comment,
     })
-
-    console.log({
-      date: date,
-      category: category,
-      amount: expense,
-      comment: comment
-    });
-    props.close()
+    .then(()=>{
+      props.getLatestExpenses()
+      console.log({
+        date: date,
+        category: category,
+        amount: expense,
+        comment: comment
+      });
+      props.close()
+    })
   };
 
   return (
