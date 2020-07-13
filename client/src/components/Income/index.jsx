@@ -24,14 +24,14 @@ const Income = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
-    
+
     API.Income.post(authToken, {
       date: date,
       category: category,
       amount: income,
       comment: comment,
     })
-    
+
     console.log({
       date: date,
       category: category,
