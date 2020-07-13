@@ -38,7 +38,7 @@ const Income = (props) => {
       amount: income,
       comment: comment,
     });
-
+    
     props.close()
   };
 
