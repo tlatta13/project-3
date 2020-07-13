@@ -5,6 +5,7 @@ import API from "../../lib/API"
 
 import "react-datepicker/dist/react-datepicker.css";
 import { contextType } from "react-modal";
+
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
@@ -21,16 +22,26 @@ const Income = (props) => {
     props.close();
   };
 
+  // handleInputChange = (event) => {
+  //   const { } = event.target;
+
+  //   this.setState({ })
+  // }
+
   const submitHandler = (event) => {
     event.preventDefault();
+
     
     API.Income.post({
+
       date: date,
       category: category,
       amount: income,
       comment: comment,
     })
+
     
+
     console.log({
       date: date,
       category: category,
