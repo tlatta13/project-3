@@ -8,6 +8,7 @@ import PieChart from "../../components/Charts/piechart";
 import IncomeTable from "../../components/Tables/income"
 import ExpenseTable from "../../components/Tables/expense"
 import SavingsTable from "../../components/Tables/savings"
+import Savings from "../../components/Savings";
 
 
 const customStyles = {
@@ -115,7 +116,9 @@ const Dashboard = () => {
         style={customStyles}
         contentLabel="Income Modal"
       >
-        {modalContent === "income" ? <Income close={closeModal} /> :<Expense close={closeModal} />}
+        {modalContent === "income" ? <Income close={closeModal} /> :
+         modalContent === "expense" ? <Expense close={closeModal} />:
+         <Savings close={closeModal}/> }
         </Modal>
 
       {/* Income Savings and Expense Tables */}
