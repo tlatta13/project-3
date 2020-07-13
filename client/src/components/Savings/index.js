@@ -1,9 +1,9 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useContext  } from "react";
 import DatePicker from "react-datepicker";
-import API from "../../lib/API"
-import AuthContext from '../../contexts/AuthContext'
-
 import "react-datepicker/dist/react-datepicker.css";
+import API from "../../lib/API";
+import AuthContext from '../../contexts/AuthContext';
+
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
@@ -29,13 +29,22 @@ const Savings = (props) => {
       amount: savings,
       comment: comment,
     })
-
-    console.log({
-      date: date,
-      category: category,
-      amount: savings,
-      comment: comment
-    });
+    .then(()=>{
+      props.getLatestSavings()
+      console.log({
+        date: date,
+        category: category,
+        amount: savings,
+        comment: comment
+      });
+      props.close()
+    })
+    // console.log({
+    //   date: date,
+    //   category: category,
+    //   amount: savings,
+    //   comment: comment
+    // });
     props.close()
   };
 

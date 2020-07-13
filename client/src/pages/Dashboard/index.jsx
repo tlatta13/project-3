@@ -32,6 +32,8 @@ const Dashboard = () => {
   const [modalContent, setModalContent] = useState("");
   const [expensesTable, setExpensesTable] = useState([])
   const [filteredExpensesTable, setFilteredExpensesTable] = useState([])
+  const [savingsTable, setSavingsTable] = useState([])
+  const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const [incomeTable, setIncomeTable] = useState([])
   const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
   const openModal = (contents) => {
@@ -40,7 +42,8 @@ const Dashboard = () => {
   };
   useEffect(() => {
     Modal.setAppElement("body")
-    getLatestExpenses();
+    getLatestExpenses()
+    getLatestSavings()
     getLatestIncome();
   }, []);
   const afterOpenModal = () => {
@@ -59,6 +62,16 @@ const Dashboard = () => {
         setFilteredExpensesTable(res.data)
       })
   }
+  
+  const getLatestSavings = () => {
+    API.Savings.getAll(auth.authToken)
+      .then(res => {
+        console.log(res)
+        setSavingsTable(res.data)
+        setFilteredSavingsTable(res.data)
+      })
+  }
+  
 
   const getLatestIncome = () => {
     API.Income.getAll(auth.authToken)
@@ -159,8 +172,15 @@ const Dashboard = () => {
       </div>
 
       <div className="container bg-light border-0 rounded my-4">
-        <h3 className="text-center mb-3 py-4">Savings</h3>
-        <SavingsTable />
+        <h3 className="text-center mb-3 py-4">
+          Savings
+        </h3>
+        <SavingsTable
+        setSavingsTable={setSavingsTable}
+        savingsTable={savingsTable}
+        setFilteredSavingsTable={setFilteredSavingsTable}
+        filteredSavingsTable={filteredSavingsTable}
+        />
       </div>
 
       <div className="container bg-light border-0 rounded my-4">
