@@ -126,9 +126,6 @@ const Dashboard = () => {
           Income
         </h3>
         <IncomeTable
-          // incomes={this.state.filteredIncomes}
-          // sortByDate={this.sortByDate}
-          // sortByCategory={this.sortByCategory}
         />
       </div>
 
@@ -137,9 +134,6 @@ const Dashboard = () => {
           Savings
         </h3>
         <SavingsTable
-          // incomes={this.state.filteredIncomes}
-          // sortByDate={this.sortByDate}
-          // sortByCategory={this.sortByCategory}
         />
       </div>
 
@@ -148,9 +142,6 @@ const Dashboard = () => {
           Expenses
         </h3>
         <ExpenseTable
-          // incomes={this.state.filteredIncomes}
-          // sortByDate={this.sortByDate}
-          // sortByCategory={this.sortByCategory}
         />
       </div>
     </div>

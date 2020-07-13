@@ -23,8 +23,8 @@ class PieChart extends Component {
 
            this.setState({
             expenses: res.data,
-           labels : newLabels, 
-           data: newAmount
+            labels : newLabels, 
+            data: newAmount
         })
     })
         .catch(err => console.log(err));
@@ -53,7 +53,7 @@ class PieChart extends Component {
     constructor(props){
         super(props)
         this.state={
-            labels: ["Rent", "Food", "Cable"],
+            labels: [],
             datasets: [{
             data:[815, 400, 75],
             backgroundColor: this.colors
@@ -65,7 +65,7 @@ class PieChart extends Component {
 render(){
     return (
         <div>
-        <p className="text-center">Expenses Chart</p>
+        <p className="text-center">Expense Breakdown</p>
         <Pie
          data={{
              labels: this.state.labels,

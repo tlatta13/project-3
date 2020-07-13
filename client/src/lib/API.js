@@ -39,11 +39,10 @@ export default {
       });
     },
     post: function (authToken,expense) {
-      return axios.post('/api/expense', {
+      return axios.post('/api/expense', expense, {
         headers: {
           'Authorization': `Bearer ${authToken}`
-        },
-        expense
+        }
         });
     }
   
@@ -59,12 +58,11 @@ export default {
       });
     },
     post: function (authToken,income) {
-      return axios.post('/api/income', {
+      return axios.post('/api/income', income, {
         headers: {
           'Authorization': `Bearer ${authToken}`
-        },
-        income
-        });
+        }
+      });
     }
   },
   

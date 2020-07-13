@@ -1,17 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
 import API from "../../lib/API"
-// import authContext from '../../contexts/AuthContext'
+import AuthContext from '../../contexts/AuthContext'
 
 import "react-datepicker/dist/react-datepicker.css";
-import { contextType } from "react-modal";
+
 const customStyles = {
     main:{
         'font-family': 'Arial, Helvetica, sans-serif'
     }
   };
+
 const Income = (props) => {
-  // contextType = authContext;
+  const { authToken } = useContext(AuthContext);
   const [income, setIncome] = useState(0);
   const [date, setDate] = useState(new Date());
   const [category, setCategory] = useState("");
@@ -24,7 +25,7 @@ const Income = (props) => {
   const submitHandler = (event) => {
     event.preventDefault();
     
-    API.Income.post({
+    API.Income.post(authToken, {
       date: date,
       category: category,
       amount: income,
