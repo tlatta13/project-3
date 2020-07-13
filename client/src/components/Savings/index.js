@@ -22,6 +22,7 @@ const Savings = (props) => {
 
   const submitHandler = (event) => {
     event.preventDefault();
+
     API.Savings.post(authToken, {
       date: date,
       category: category,

@@ -5,15 +5,14 @@ import Income from "../../components/Income";
 import Expense from "../../components/Expense";
 import MonthlyBar from "../../components/Charts/monthlybar";
 import PieChart from "../../components/Charts/piechart";
-import IncomeTable from "../../components/Tables/income"
-import ExpenseTable from "../../components/Tables/expense"
-import SavingsTable from "../../components/Tables/savings"
+import IncomeTable from "../../components/Tables/income";
+import ExpenseTable from "../../components/Tables/expense";
+import SavingsTable from "../../components/Tables/savings";
 import Savings from "../../components/Savings";
 import API from "../../lib/API"
 
 const customStyles = {
   content: {
-
     top: "50%",
     left: "50%",
     right: "auto",
@@ -35,6 +34,8 @@ const Dashboard = () => {
   const [filteredExpensesTable, setFilteredExpensesTable] = useState([])
   const [savingsTable, setSavingsTable] = useState([])
   const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
+  const [incomeTable, setIncomeTable] = useState([])
+  const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -43,6 +44,7 @@ const Dashboard = () => {
     Modal.setAppElement("body")
     getLatestExpenses()
     getLatestSavings()
+    getLatestIncome();
   }, []);
   const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
@@ -70,6 +72,16 @@ const Dashboard = () => {
       })
   }
   
+
+  const getLatestIncome = () => {
+    API.Income.getAll(auth.authToken)
+      .then(res => {
+        console.log(res)
+        setIncomeTable(res.data)
+        setFilteredIncomeTable(res.data)
+      })
+  }
+
   const userInfo = useContext(AuthContext);
 
   const style = {
@@ -78,11 +90,11 @@ const Dashboard = () => {
       justifyContent: "center",
     },
     incomeButton: {
-      backgroundColor: "green"
+      backgroundColor: "green",
     },
     expenseButton: {
-      backgroundColor: "red"
-    }
+      backgroundColor: "red",
+    },
   };
   // Modal Info End
 
@@ -135,24 +147,27 @@ const Dashboard = () => {
       </div>
 
       {/* Modals */}
-      <Modal Income
+      <Modal
+        Income
         isOpen={modalIsOpen}
         onAfterOpen={afterOpenModal}
         onRequestClose={closeModal}
         style={customStyles}
         contentLabel="Income Modal"
       >
-        {modalContent === "income" ? <Income close={closeModal} /> :
+        {modalContent === "income" ? <Income close={closeModal} getLatestIncome={getLatestIncome} /> :
           modalContent === "expense" ? <Expense close={closeModal} getLatestExpenses={getLatestExpenses} /> :
             <Savings close={closeModal} />}
       </Modal>
 
       {/* Income Savings and Expense Tables */}
       <div className="container bg-light border-0 rounded my-4">
-        <h3 className="text-center py-4">
-          Income
-        </h3>
+        <h3 className="text-center py-4">Income</h3>
         <IncomeTable
+          setIncomeTable={setIncomeTable}
+          incomeTable={incomeTable}
+          setFilteredIncomeTable={setFilteredIncomeTable}
+          filteredIncomeTable={filteredIncomeTable}
         />
       </div>
 

@@ -31,16 +31,17 @@ const Income = (props) => {
       amount: income,
       comment: comment,
     })
-
-    console.log({
-      date: date,
-      category: category,
-      amount: income,
-      comment: comment,
-    });
-
+    .then(()=>{
+      props.getLatestIncome()
+      console.log({
+        date: date,
+        category: category,
+        amount: income,
+        comment: comment
+      });
     props.close()
-  };
+  })
+};
 
   return (
     <>
