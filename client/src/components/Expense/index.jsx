@@ -29,14 +29,16 @@ const Expense = (props) => {
       amount: expense,
       comment: comment,
     })
-
-    console.log({
-      date: date,
-      category: category,
-      amount: expense,
-      comment: comment
-    });
-    props.close()
+    .then(()=>{
+      props.getLatestExpenses()
+      console.log({
+        date: date,
+        category: category,
+        amount: expense,
+        comment: comment
+      });
+      props.close()
+    })
   };
 
   return (
