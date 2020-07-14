@@ -43,10 +43,18 @@ To install necessary dependencies, do the following list below:
    ```
 
 ## Yarn Packages needed
--yarn add react-ticker
--yarn add react-datepicker
--yarn add react-chartjs-2
--yarn add chart.js
+```bash
+$ yarn add react-ticker
+```
+```bash
+$ yarn add react-datepicker
+```
+```bash
+$ yarn add react-chartjs-2
+```
+```bash
+$ yarn add chart.js
+```
 
 
 ## Motivation
