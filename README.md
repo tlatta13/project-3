@@ -78,7 +78,11 @@ The following APIs were used in the development of this assignment.
 
 ## Image
 
-![boss-budget]
+![boss-budget]![image](https://user-images.githubusercontent.com/63322716/87370282-7f2e0780-c550-11ea-88a6-f99f6426481a.png)
+
+![image](https://user-images.githubusercontent.com/63322716/87370437-ed72ca00-c550-11ea-891b-87f23e320646.png)
+
+
 
 ## Deployed Application
 
