@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import API from "../../lib/API";
 import authContext from '../../contexts/AuthContext';
 import moment from 'moment'
+import "./style.css"
+
 
 class IncomeTable extends Component {
     static contextType = authContext;

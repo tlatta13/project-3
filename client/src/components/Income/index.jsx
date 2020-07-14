@@ -47,13 +47,14 @@ const Income = (props) => {
     <>
       <form style={customStyles.main}>
         <div className="form-group">
-          <div>
-            Date of Income:
+          <div className="mb-2">
+          <label htmlFor="categoryBox">Income Date:</label>
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-          <label htmlFor="categoryBox">Type of Income?</label>
+
+          <label htmlFor="categoryBox">Type of Income:</label>
           <input
             type="text"
             className="form-control"
@@ -62,8 +63,9 @@ const Income = (props) => {
             onChange={(event) => setCategory(event.target.value)}
           />
         </div>
+        
         <div>
-          <label htmlFor="incomeBox">What is the amount of the income?</label>
+          <label htmlFor="incomeBox">Income Amount:</label>
           <input
             type="text"
             className="form-control"
@@ -72,9 +74,9 @@ const Income = (props) => {
             onChange={(event) => setIncome(event.target.value)}
           />
         </div>
+        
         <div>
-          <div>Income Notes:</div>
-
+          <label htmlFor="categoryBox">Notes:</label>
           <textarea
             id="commentBox"
             rows="4"
