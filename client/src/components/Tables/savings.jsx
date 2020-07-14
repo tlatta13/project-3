@@ -10,49 +10,44 @@ class SavingsTable extends Component {
         //filteredSavings: [],
         order: ""
     };
-// changed line 15
+
     sortByDate = () => {
-        const filterSavings = this.state.filteredSavingsTable;
+        const filterSavings = this.props.filteredSavingsTable;
         if (this.state.order === "desc") {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.date > b.date) ? -1 : 1);
-                this.props.setFilteredSavingsTable(sortSavings)
+            this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                // filteredSavings: sortSavings,
                 order: "asc"
-            });
+            })
         } else {
-            const sortSavings = filterSavings.sort((a, b) => 
+            const sortSavings = filterSavings.sort((a, b) =>
                 (a.date > b.date) ? 1 : -1);
-                this.props.setFilteredSavingsTable(sortSavings)
+            this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                //filteredIncomes: sortSavings,
                 order: "desc"
-            });
-        };
-    };
+            })
+        }
+    }
 
     sortByCategory = () => {
-        const filterSavings = this.state.filteredSavingsTable;
+        const filterSavings = this.props.filteredSavingsTable;
         if (this.state.order === "desc") {
-            const sortSavings = filterSavings.sort((a, b) => 
-                (a.category > b.category) ? -1 : 1);
+            const sortSavings = filterSavings.sort((a, b) =>
+                (a.category > b.category) ? -1 : 1)
             this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                // filteredIncomes: sortSavings,
                 order: "asc"
-            });
+            })
         } else {
-            const sortSavings = filterSavings.sort((a, b) => 
-                (a.category > b.category) ? 1 : -1);
-                
+            const sortSavings = filterSavings.sort((a, b) =>
+                (a.category > b.category) ? 1 : -1)
             this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
-                // filteredSavings: sortSavings,
                 order: "desc"
-            });
-        };
-    };
+            })
+        }
+    }
 
     render() {
         return (
