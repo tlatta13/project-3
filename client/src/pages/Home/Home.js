@@ -41,7 +41,8 @@ class HomePage extends Component {
                 </div>
 
                 <div className='container'>
-                <div className='row'>
+                <div className='row card-deck'>
+
                     <div className='col-6 col-sm-6 col-md-3 mb-4'>
                         <div className='info-card bg-light shadow'>
                             <img src={img1} className='card-img' alt='...' />
