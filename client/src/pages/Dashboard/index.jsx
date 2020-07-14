@@ -26,6 +26,7 @@ const customStyles = {
 
   }
 };
+
 const Dashboard = () => {
   const auth = useContext(AuthContext)
   const [modalIsOpen, setIsOpen] = useState(false);
