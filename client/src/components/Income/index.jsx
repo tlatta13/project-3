@@ -31,7 +31,8 @@ const Income = (props) => {
       comment: comment,
     })
     .then(()=>{
-      props.getLatestIncome()
+      props.getLatestIncome();
+      window.location.reload();
       console.log({
         date: date,
         category: category,
