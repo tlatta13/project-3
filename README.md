@@ -12,7 +12,7 @@ SO THAT I can become better at handling my money.
 ```
 ## Table of Contents
 
-  * [Boss Budget](#budget-planner)
+  * [Boss Budget](#boss-budget)
   * [User Story](#user-story)
   * [Installation](#installation)
   * [Usage](#Usage)
