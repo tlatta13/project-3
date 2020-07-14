@@ -47,12 +47,13 @@ const Savings = (props) => {
       <form style={customStyles.main}>
         <div className="form-group">
           <div>
-            Date of Savings:
+            <label htmlFor="categoryBox">Savings Date:</label>
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-          <label htmlFor="categoryBox">Type of Savings?</label>
+          
+          <label htmlFor="categoryBox">Type of Savings:</label>
           <input
             type="text"
             className="form-control"
@@ -61,8 +62,9 @@ const Savings = (props) => {
             onChange={(event) => setCategory(event.target.value)}
           />
         </div>
+
         <div>
-          <label htmlFor="incomeBox">Enter savings amount:</label>
+          <label htmlFor="incomeBox">Savings Amount:</label>
           <input
             type="text"
             className="form-control"
@@ -71,8 +73,9 @@ const Savings = (props) => {
             onChange={(event) => setSavings(event.target.value)}
           />
         </div>
+
         <div>
-          <div>Savings Notes:</div>
+          <label htmlFor="categoryBox">Notes:</label>
 
           <textarea
             id="commentBox"
