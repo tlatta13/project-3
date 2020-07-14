@@ -45,6 +45,7 @@ class SavingsTable extends Component {
         } else {
             const sortSavings = filterSavings.sort((a, b) => 
                 (a.category > b.category) ? 1 : -1);
+                
             this.props.setFilteredSavingsTable(sortSavings)
             this.setState({
                 // filteredSavings: sortSavings,
