@@ -1,5 +1,5 @@
 
-# Budget Planner
+# Boss Budget
 ![FullStack](https://user-images.githubusercontent.com/61035701/84943225-1028d480-b0b2-11ea-8742-e49bc271dcfc.png)
 <br>
 A budgeting application that allows the user to carefully balance their income and expenses, while being able to see curent stock market trends.
@@ -12,7 +12,7 @@ SO THAT I can become better at handling my money.
 ```
 ## Table of Contents
 
-  * [Budget Planner](#budget-planner)
+  * [Boss Budget](#budget-planner)
   * [User Story](#user-story)
   * [Installation](#installation)
   * [Usage](#Usage)
@@ -47,7 +47,7 @@ To install necessary dependencies, do the following list below:
 
 
 ## Motivation
-Quiz stack is an assigned group project. It has been assigned to five students part of a Full-Stack Development Bootcamp. The goal of this project is to showcase the Full-Stack environment utilizing the latest technologies. It places emphasis on using React.js, which is a dynamic way to build apps.
+Boss Budget is an assigned group project. It has been assigned to five students part of a Full-Stack Development Bootcamp. The goal of this project is to showcase the Full-Stack environment utilizing the latest technologies. It places emphasis on using React.js, which is a dynamic way to build apps.
 
 
 ## Authors
@@ -78,10 +78,15 @@ The following APIs were used in the development of this assignment.
 
 ## Image
 
-![budget-planner]
+![boss-budget]![image](https://user-images.githubusercontent.com/63322716/87370282-7f2e0780-c550-11ea-88a6-f99f6426481a.png)
+
+![image](https://user-images.githubusercontent.com/63322716/87370437-ed72ca00-c550-11ea-891b-87f23e320646.png)
+
+
 
 ## Deployed Application
 
+<a href="http://boss-budget.herokuapp.com/">Boss Budget</a>
 
 
 
