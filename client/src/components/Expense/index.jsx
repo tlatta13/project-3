@@ -31,7 +31,8 @@ const Expense = (props) => {
       comment: comment,
     })
     .then(()=>{
-      props.getLatestExpenses()
+      props.getLatestExpenses();
+      window.location.reload();
       console.log({
         date: date,
         category: category,
