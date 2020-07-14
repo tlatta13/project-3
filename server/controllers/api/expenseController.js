@@ -1,7 +1,7 @@
 const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const ExpenseController = require('express').Router();
-
+const mongoose = require ('mongoose')
 // Error Handler
 const handleError = (err, res) => {
     console.log(err)
@@ -87,7 +87,12 @@ ExpenseController.get('/', ({body, params}, res) => {
 })
 
 // Delete Expense
-ExpenseController.get('/:id', (req, res) => {
+ExpenseController.delete('/:userid/:expensesid', (req, res) => {
+    db.Users.update( { _id: mongoose.Types.ObjectId(req.params.userid) }, { $pull: { expenses: { _id: mongoose.Types.ObjectId (req.params.expenseid) } } } )
+    .then(results=>{
+        console.log(results)
+        res.json(results)
+    })
     // delete expense
 })
 

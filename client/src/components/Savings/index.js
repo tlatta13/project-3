@@ -31,7 +31,8 @@ const Savings = (props) => {
       comment: comment,
     })
     .then(()=>{
-      props.getLatestSavings()
+      props.getLatestSavings();
+      window.location.reload();
       console.log({
         date: date,
         category: category,
