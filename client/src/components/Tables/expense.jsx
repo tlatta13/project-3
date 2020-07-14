@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import API from "../../lib/API"
 import authContext from '../../contexts/AuthContext'
+import moment from 'moment'
 
 class ExpenseTable extends Component {
     static contextType = authContext;
@@ -72,7 +73,7 @@ class ExpenseTable extends Component {
                     {/* Map over incomes to display all */}
                     {this.props.expensesTable.map((result) => (
                         <tr key={result._id}>
-                            <td>{result.date}</td>
+                            <td>{moment(result.date, "YYYY_MM_DD").format("MM-DD-YYYY")}</td>
                             <td>{result.category}</td>
                             <td>{result.amount}</td>
                             <td>{result.comment}</td>
