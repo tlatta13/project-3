@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import API from "../../lib/API";
 import authContext from '../../contexts/AuthContext';
+import moment from 'moment'
+import "./style.css"
+
 
 class IncomeTable extends Component {
     static contextType = authContext;
@@ -12,48 +15,42 @@ class IncomeTable extends Component {
     };
 
     sortByDate = () => {
-        const filterIncome = this.state.filteredIncomeTable;
-        if (this.state.order === "desc") {
-            const sortIncome = filterIncome.sort((a, b) => 
-                (a.date > b.date) ? -1 : 1);
-                this.props.setFilteredIncomeTable(sortIncome)
+        const filterIncome = this.props.filteredIncomeTable; 
+        if (this.state.order === "desc") { 
+            const sortIncome = filterIncome.sort((a, b) =>
+                (a.date > b.date) ? -1 : 1)
+            this.props.setFilteredIncomeTable(sortIncome)
             this.setState({
-                // filteredIncomes: sortIncomes,
                 order: "asc"
             });
         } else {
-            const sortIncome = filterIncome.sort((a, b) => 
-                (a.date > b.date) ? 1 : -1);
+            const sortIncome = filterIncome.sort((a, b) =>
+                (a.date > b.date) ? 1 : -1)
             this.props.setFilteredIncomeTable(sortIncome)
             this.setState({
-                // filteredIncome: sortIncome,
                 order: "desc"
-            });
-        };
-    };
+            })
+        }
+    }
 
     sortByCategory = () => {
-        const filterIncome = this.state.filteredIncomeTable;
-        if (this.state.order === "desc") {
-            const sortIncome = filterIncome.sort((a, b) => 
-                (a.category > b.category) ? -1 : 1);
-            
+        const filterIncome = this.props.filteredIncomeTable; 
+        if (this.state.order === "desc") { 
+            const sortIncome = filterIncome.sort((a, b) =>
+                (a.date > b.date) ? -1 : 1)
             this.props.setFilteredIncomeTable(sortIncome)
             this.setState({
-                // filteredIncomes: sortIncomes,
                 order: "asc"
             });
         } else {
-            const sortIncome = filterIncome.sort((a, b) => 
-                (a.category > b.category) ? 1 : -1);
-    
+            const sortIncome = filterIncome.sort((a, b) =>
+                (a.date > b.date) ? 1 : -1)
             this.props.setFilteredIncomeTable(sortIncome)
             this.setState({
-                // filteredIncomes: sortIncomes,
                 order: "desc"
-            });
-        };
-    };
+            })
+        }
+    } 
 
     render() {
         return (
@@ -71,10 +68,10 @@ class IncomeTable extends Component {
                     {/* Map over incomes to display all */}
                     {this.props.incomeTable.map((result) => (
                         <tr key={result._id}>
-                            <td>{ result.date }</td>
-                            <td>{ result.category }</td>
-                            <td>{ result.amount }</td>
-                            <td>{ result.comment }</td>
+                            <td>{moment(result.date, "YYYY_MM_DD").format("MM-DD-YYYY")}</td>
+                            <td>{result.category}</td>
+                            <td>{result.amount}</td>
+                            <td>{result.comment}</td>
                         </tr>
                     ))}
                 </tbody>

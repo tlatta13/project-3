@@ -31,7 +31,8 @@ const Expense = (props) => {
       comment: comment,
     })
     .then(()=>{
-      props.getLatestExpenses()
+      props.getLatestExpenses();
+      window.location.reload();
       console.log({
         date: date,
         category: category,
@@ -47,12 +48,13 @@ const Expense = (props) => {
       <form style={customStyles.main}>
         <div className="form-group">
           <div>
-            What is the date of the transaction?
+            <label htmlFor="categoryBox">Expense Date:</label>
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-          <label htmlFor="categoryBox">Type of Expense?</label>
+
+          <label htmlFor="categoryBox">Type of Expense:</label>
           <input
             type="text"
             className="form-control"
@@ -61,8 +63,9 @@ const Expense = (props) => {
             onChange={(event) => setCategory(event.target.value)}
           />
         </div>
+
         <div>
-          <label htmlFor="incomeBox">What is the amount of the expense?</label>
+          <label htmlFor="incomeBox">Expense Amount:</label>
           <input
             type="text"
             className="form-control"
@@ -71,9 +74,9 @@ const Expense = (props) => {
             onChange={(event) => setExpense(event.target.value)}
           />
         </div>
-        <div>
-          <div>Expense Notes:</div>
 
+        <div>
+          <label htmlFor="categoryBox">Notes:</label>
           <textarea
             id="commentBox"
             rows="4"
