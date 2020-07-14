@@ -12,20 +12,8 @@ class IncomeTable extends Component {
         order: ""
     };
 
-    // componentDidMount() {
-    //     API.Income.getAll(this.context.authToken)
-    //     .then(res => {
-    //         console.log(res)
-    //        this.setState({
-    //         incomes: res.data,
-    //         filteredIncomes: res.data
-    //     })
-    // })
-    //     .catch(err => console.log(err));
-    // }
-
     sortByDate = () => {
-        const filterIncome = this.state.filteredIncome;
+        const filterIncome = this.state.filteredIncomeTable;
         if (this.state.order === "desc") {
             const sortIncome = filterIncome.sort((a, b) => 
                 (a.date > b.date) ? -1 : 1);
@@ -39,14 +27,14 @@ class IncomeTable extends Component {
                 (a.date > b.date) ? 1 : -1);
             this.props.setFilteredIncomeTable(sortIncome)
             this.setState({
-                filteredIncome: sortIncome,
+                // filteredIncome: sortIncome,
                 order: "desc"
             });
         };
     };
 
     sortByCategory = () => {
-        const filterIncome = this.state.filteredIncome;
+        const filterIncome = this.state.filteredIncomeTable;
         if (this.state.order === "desc") {
             const sortIncome = filterIncome.sort((a, b) => 
                 (a.category > b.category) ? -1 : 1);

@@ -1,9 +1,8 @@
 import React, { useState, useContext } from "react";
 import DatePicker from "react-datepicker";
+import "react-datepicker/dist/react-datepicker.css";
 import API from "../../lib/API"
 import AuthContext from '../../contexts/AuthContext'
-
-import "react-datepicker/dist/react-datepicker.css";
 
 const customStyles = {
     main:{
@@ -48,7 +47,7 @@ const Income = (props) => {
       <form style={customStyles.main}>
         <div className="form-group">
           <div>
-            Date of Income?
+            Date of Income:
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>

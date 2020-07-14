@@ -9,6 +9,7 @@ const customStyles = {
         'font-family': 'Arial, Helvetica, sans-serif'
     }
   };
+
 const Savings = (props) => {
   const { authToken } = useContext(AuthContext);
   const [savings, setSavings] = useState(0);
@@ -39,13 +40,6 @@ const Savings = (props) => {
       });
       props.close()
     })
-    // console.log({
-    //   date: date,
-    //   category: category,
-    //   amount: savings,
-    //   comment: comment
-    // });
-    props.close()
   };
 
   return (
@@ -53,7 +47,7 @@ const Savings = (props) => {
       <form style={customStyles.main}>
         <div className="form-group">
           <div>
-            What is the date of the transaction?
+            Date of Savings:
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
@@ -68,7 +62,7 @@ const Savings = (props) => {
           />
         </div>
         <div>
-          <label htmlFor="incomeBox">What is the amount of the savings?</label>
+          <label htmlFor="incomeBox">Enter savings amount:</label>
           <input
             type="text"
             className="form-control"

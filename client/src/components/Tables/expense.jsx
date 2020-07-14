@@ -11,22 +11,6 @@ class ExpenseTable extends Component {
         order: ""
     };
 
-    // componentDidMount() {
-    //     this.getLastestExpenses()
-    // }
-
-    // getLastestExpenses =()=>{
-    //     API.Expense.getAll(this.context.authToken)
-    //     .then(res => {
-    //         console.log(res)
-    //         this.setState({
-    //         expenses: res.data,
-    //         filteredExpenses: res.data
-    //     })
-    // })
-    //     .catch(err => console.log(err));
-    // }
-
     sortByDate = () => {
         const filterExpenses = this.props.filteredExpensesTable;
         if (this.state.order === "desc") {
