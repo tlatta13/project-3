@@ -68,7 +68,7 @@ class SavingsTable extends Component {
                         <tr key={result._id}>
                             <td>{moment(result.date, "YYYY_MM_DD").format("MM-DD-YYYY")}</td>
                             <td>{ result.category }</td>
-                            <td>{ result.amount }</td>
+                            <td>${ result.amount }</td>
                             <td>{ result.comment }</td>
                         </tr>
                     ))}

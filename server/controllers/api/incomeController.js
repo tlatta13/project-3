@@ -1,4 +1,4 @@
-const db = require('../../models');
+const db = require('../../models/user');
 const { JWTVerifier } = require("../../lib/passport");
 const IncomeController = require('express').Router();
 
@@ -61,9 +61,9 @@ IncomeController.get('/:id', JWTVerifier, ({body, params}, res) => {
 })
 
 // GET /api/income/
-IncomeController.get('/:id', JWTVerifier, (req, res) => {
+IncomeController.delete('/:id', JWTVerifier, (req, res) => {
     // delete income
-    req.user.expenses.pull(_id);
+    req.user.incomes.findOneAndDelete(_id: );
 
     req.user.save(function (err) {
         if (err) return handleError(err, res)
