@@ -88,11 +88,15 @@ ExpenseController.get('/', ({body, params}, res) => {
 
 // Delete Expense
 ExpenseController.delete('/:userid/:expensesid', (req, res) => {
-    db.Users.update( { _id: mongoose.Types.ObjectId(req.params.userid) }, { $pull: { expenses: { _id: mongoose.Types.ObjectId (req.params.expenseid) } } } )
-    .then(results=>{
-        console.log(results)
-        res.json(results)
-    })
+    console.log(req.params.userid,req.params.expensesid)
+    db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {expenses: {_id:mongoose.Types.ObjectId(req.params.expensesid)}}}, function(err, data){
+        if(err) {
+          return res.status(500).json({'error' : 'error in deleting address'});
+        }
+
+        res.json(data);
+
+      });
     // delete expense
 })
 
