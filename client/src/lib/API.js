@@ -44,6 +44,13 @@ export default {
           'Authorization': `Bearer ${authToken}`
         }
         });
+    },
+    delete: function (authToken,expense,userid,expensesid) {
+      return axios.delete('/api/expense/'+userid+"/"+expensesid, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+        });
     }
   
   },
@@ -63,7 +70,14 @@ export default {
           'Authorization': `Bearer ${authToken}`
         }
       });
-    }
+    },
+    delete: function (authToken,income,userid,incomesid) {
+      return axios.delete('/api/income/'+userid+"/"+incomesid, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+        });
+    },
   },
   
   // Get all savings
@@ -81,7 +95,14 @@ export default {
           'Authorization': `Bearer ${authToken}`
         }
         });
-    }
+    },
+    delete: function (authToken,savings,userid,savingsid) {
+      return axios.delete('/api/savings/'+userid+"/"+savingsid, {
+        headers: {
+          'Authorization': `Bearer ${authToken}`
+        }
+        });
+    },
   },
   Stock: {
     get:function(){

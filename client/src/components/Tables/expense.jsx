@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import API from "../../lib/API"
+//import API from "../../lib/API"
 import authContext from '../../contexts/AuthContext'
 import moment from 'moment'
 
@@ -77,6 +77,7 @@ class ExpenseTable extends Component {
                             <td>{result.category}</td>
                             <td>${result.amount}</td>
                             <td>{result.comment}</td>
+                            {/* <td><button onClick={() => this.props.onDelete(result,result._id)}>Delete</button></td> */}
                         </tr>
                     ))}
                 </tbody>

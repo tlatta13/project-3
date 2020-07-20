@@ -1,7 +1,7 @@
 const db = require('../../models/user');
 const { JWTVerifier } = require("../../lib/passport");
 const IncomeController = require('express').Router();
-
+const mongoose = require ('mongoose')
 // Error Handler
 const handleError = (err, res) => {
     console.log(err)
@@ -71,6 +71,20 @@ IncomeController.delete('/:id', JWTVerifier, (req, res) => {
         res.sendStatus(200)
     })
 })
+
+IncomeController.delete('/:userid/:incomesid', (req, res) => {
+    console.log(req.params.userid,req.params.incomesid)
+    db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {incomes: {_id:mongoose.Types.ObjectId(req.params.incomesid)}}}, function(err, data){
+        if(err) {
+          return res.status(500).json({'error' : 'error in deleting address'});
+        }
+
+        res.json(data);
+
+      });
+    // delete expense
+})
+
 
 module.exports = IncomeController;
 

@@ -77,6 +77,7 @@ const Dashboard = () => {
         setFilteredSavingsTable(res.data)
       })
   }
+
   
   // get all income
   const getLatestIncome = () => {
@@ -87,6 +88,38 @@ const Dashboard = () => {
         setFilteredIncomeTable(res.data)
       })
   }
+
+
+
+
+const onDelete=(expenses,expensesid) =>{
+  console.log(auth.authToken)
+ 
+         API.Expense.delete(auth.authToken,expenses,"5f0602fbdd4c3f7388b0f950",expensesid).then(results=>{
+          window.location.reload()
+          console.log(results)})
+
+}
+
+const onIncDelete=(income,incomesid) =>{
+  console.log(auth.authToken)
+ 
+         API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
+          window.location.reload()
+          console.log(results)})
+
+}
+
+const onSavDelete=(savings,savingsid) =>{
+  console.log(auth.authToken)
+ 
+         API.Savings.delete(auth.authToken,savings,"5f0602fbdd4c3f7388b0f950",savingsid).then(results=>{
+          window.location.reload()
+          console.log(results)})
+
+}
+
+
 
   const userInfo = useContext(AuthContext);
 
@@ -174,6 +207,7 @@ const Dashboard = () => {
           incomeTable={incomeTable}
           setFilteredIncomeTable={setFilteredIncomeTable}
           filteredIncomeTable={filteredIncomeTable}
+          onIncDelete={onIncDelete}
         />
       </div>
 
@@ -186,6 +220,7 @@ const Dashboard = () => {
         savingsTable={savingsTable}
         setFilteredSavingsTable={setFilteredSavingsTable}
         filteredSavingsTable={filteredSavingsTable}
+        onSavDelete={onSavDelete}
         />
       </div>
 
@@ -198,6 +233,7 @@ const Dashboard = () => {
           expensesTable={expensesTable}
           setFilteredExpensesTable={setFilteredExpensesTable}
           filteredExpensesTable={filteredExpensesTable}
+          onDelete={onDelete}
         />
       </div>
     </div>

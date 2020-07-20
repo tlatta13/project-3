@@ -1,7 +1,7 @@
 const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const SavingsController = require('express').Router();
-
+const mongoose = require ('mongoose')
 // Error Handler
 const handleError = (err, res) => {
     console.log(err)
@@ -71,5 +71,20 @@ SavingsController.get('/:id', JWTVerifier, (req, res) => {
         res.sendStatus(200)
     })
 })
+
+SavingsController.delete('/:userid/:savingsid', (req, res) => {
+    console.log(req.params.userid,req.params.savingsid)
+    db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {savings: {_id:mongoose.Types.ObjectId(req.params.savingsid)}}}, function(err, data){
+        if(err) {
+          return res.status(500).json({'error' : 'error in deleting address'});
+        }
+
+        res.json(data);
+
+      });
+    // delete expense
+})
+
+
 
 module.exports = SavingsController;

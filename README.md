@@ -12,7 +12,7 @@ SO THAT I can become better at handling my money.
 ```
 ## Table of Contents
 
-  * [Boss Budget](#budget-planner)
+  * [Boss Budget](#boss-budget)
   * [User Story](#user-story)
   * [Installation](#installation)
   * [Usage](#Usage)
@@ -43,10 +43,18 @@ To install necessary dependencies, do the following list below:
    ```
 
 ## Yarn Packages needed
--yarn add react-ticker
--yarn add react-datepicker
--yarn add react-chartjs-2
--yarn add chart.js
+```bash
+$ yarn add react-ticker
+```
+```bash
+$ yarn add react-datepicker
+```
+```bash
+$ yarn add react-chartjs-2
+```
+```bash
+$ yarn add chart.js
+```
 
 
 ## Motivation
@@ -54,7 +62,7 @@ Boss Budget is an assigned group project. It has been assigned to five students 
 
 
 ## Authors
-* **Christian Martinez** - [GitHub](https://github.com/cag-martinez)
+* **Christian Gomez Martinez** - [GitHub](https://github.com/cag-martinez)
 * **Travis Latta** - [GitHub](https://github.com/tlatta13)
 * **Christopher Glennon** - [GitHub](https://github.com/cglennon924)
 * **Brett Rushing** - [GitHub](https://github.com/Brushing1215)
