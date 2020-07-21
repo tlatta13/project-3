@@ -55,22 +55,18 @@ IncomeController.get('/', JWTVerifier, (req, res) => {
     // )
 })
 
-// GET /api/income/:id
-IncomeController.get('/:id', JWTVerifier, ({body, params}, res) => {
-    // update income
-})
-
 // GET /api/income/
-IncomeController.delete('/:id', JWTVerifier, (req, res) => {
-    // delete income
-    req.user.incomes.findOneAndDelete(_id: );
+// IncomeController.delete('/:id', JWTVerifier, (req, res) => {
+//     // delete income
+//     req.user.incomes.id(_id).remove()
 
-    req.user.save(function (err) {
-        if (err) return handleError(err, res)
-        console.log('Income deleted')
-        res.sendStatus(200)
-    })
-})
+//     req.user.save(function (err) {
+//         if (err) return handleError(err, res)
+//         console.log('Income deleted')
+//         res.sendStatus(200)
+//     })
+
+// })
 
 IncomeController.delete('/:userid/:incomesid', (req, res) => {
     console.log(req.params.userid,req.params.incomesid)

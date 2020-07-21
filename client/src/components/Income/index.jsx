@@ -54,14 +54,25 @@ const Income = (props) => {
             </div>
           </div>
 
-          <label htmlFor="categoryBox">Type of Income:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="categoryBox"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          />
+          <div class="form-group">
+            <label htmlFor="categoryBox">Type of Income:</label>
+            <select 
+              className="form-control" 
+              id="categoryBox" 
+              value={category} 
+              onChange={(event) => setCategory(event.target.value)}
+            >
+                <option></option>
+                <option>Salary</option>
+                <option>Bonus</option>
+                <option>Commission</option>
+                <option>Gift</option>
+                <option>Refund</option>
+                <option>Dividend</option>
+                <option>Interest</option>
+                <option>Other</option>
+            </select>
+          </div>
         </div>
         
         <div>

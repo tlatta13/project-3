@@ -101,7 +101,7 @@ const onDelete=(expenses,expensesid) =>{
 
 }
 
-const onIncDelete=(income,incomesid) =>{
+const onIncDelete=(income, userid, incomesid) =>{
   console.log(auth.authToken)
  
          API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
