@@ -53,15 +53,29 @@ const Expense = (props) => {
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-
-          <label htmlFor="categoryBox">Type of Expense:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="categoryBox"
-            value={category}
-            onChange={(event) => setCategory(event.target.value)}
-          />
+          <div class="form-group">
+            <label htmlFor="categoryBox">Type of Expense:</label>
+            <select 
+              className="form-control" 
+              id="categoryBox" 
+              value={category} 
+              onChange={(event) => setCategory(event.target.value)}
+            >
+                <option></option>
+                <option>Auto/Transportation</option>
+                <option>Utilities</option>
+                <option>Education</option>
+                <option>Dining/Entertainment</option>
+                <option>Grocery</option>
+                <option>Gifts/Donations</option>
+                <option>Health/Fitness</option>
+                <option>Home</option>
+                <option>Travel</option>
+                <option>Medical</option>
+                <option>Insurance</option>
+                <option>Other</option>
+            </select>
+          </div>
         </div>
 
         <div>
