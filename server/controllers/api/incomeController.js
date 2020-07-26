@@ -1,4 +1,4 @@
-const db = require('../../models/user');
+const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const IncomeController = require('express').Router();
 const mongoose = require ('mongoose')
@@ -19,14 +19,12 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
             comment: req.body.comment
         }
     );
-
     req.user.save(function (err) {
         if (err) return handleError(err, res)
         console.log('New Income Added')
         res.sendStatus(200)
     })
 })
-
 // GET /api/income
 IncomeController.get('/', JWTVerifier, (req, res) => {
     // get all income
@@ -54,19 +52,20 @@ IncomeController.get('/', JWTVerifier, (req, res) => {
     //     ]
     // )
 })
-
+// GET /api/income/:id
+IncomeController.get('/:id', JWTVerifier, ({body, params}, res) => {
+    // update income
+})
 // GET /api/income/
-// IncomeController.delete('/:id', JWTVerifier, (req, res) => {
-//     // delete income
-//     req.user.incomes.id(_id).remove()
-
-//     req.user.save(function (err) {
-//         if (err) return handleError(err, res)
-//         console.log('Income deleted')
-//         res.sendStatus(200)
-//     })
-
-// })
+IncomeController.get('/:id', JWTVerifier, (req, res) => {
+    // delete income
+    req.user.expenses.pull(_id);
+    req.user.save(function (err) {
+        if (err) return handleError(err, res)
+        console.log('Income deleted')
+        res.sendStatus(200)
+    })
+})
 
 IncomeController.delete('/:userid/:incomesid', (req, res) => {
     console.log(req.params.userid,req.params.incomesid)
@@ -83,4 +82,3 @@ IncomeController.delete('/:userid/:incomesid', (req, res) => {
 
 
 module.exports = IncomeController;
-

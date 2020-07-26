@@ -54,14 +54,14 @@ const Savings = (props) => {
             </div>
           </div>
           
-          {/* <label htmlFor="categoryBox">Type of Savings:</label>
+           <label htmlFor="categoryBox">Type of Savings:</label>
           <input
             type="text"
             className="form-control"
             id="categoryBox"
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-          /> */}
+          /> 
         </div>
 
         <div>
