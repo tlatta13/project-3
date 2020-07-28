@@ -37,6 +37,7 @@ const Dashboard = () => {
   const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const [incomeTable, setIncomeTable] = useState([])
   const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
+  const [userid,setUserId] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -94,10 +95,12 @@ const Dashboard = () => {
 
 const onDelete=(expenses,expensesid) =>{
   console.log(auth.authToken)
- 
-         API.Expense.delete(auth.authToken,expenses,"5f0602fbdd4c3f7388b0f950",expensesid).then(results=>{
+  
+         API.Expense.delete(auth.authToken,expenses,userid,expensesid).then(results=>{
           window.location.reload()
-          console.log(results)})
+          console.log()
+        setUserId()
+        })
 
 }
 
@@ -106,7 +109,9 @@ const onIncDelete=(income, incomesid) =>{
  
          API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
           window.location.reload()
-          console.log(results)})
+          console.log()
+          setUserId()
+        })
 
 }
 
@@ -115,7 +120,9 @@ const onSavDelete=(savings,savingsid) =>{
  
          API.Savings.delete(auth.authToken,savings,"5f0602fbdd4c3f7388b0f950",savingsid).then(results=>{
           window.location.reload()
-          console.log(results)})
+          console.log()
+        setUserId()
+        })
 
 }
 
