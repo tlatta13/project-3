@@ -37,7 +37,7 @@ const Dashboard = () => {
   const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const [incomeTable, setIncomeTable] = useState([])
   const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
-  const [userid,setUserId] = useState([])
+  const [userid, setUserId] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -48,43 +48,40 @@ const Dashboard = () => {
     getLatestExpenses()
     getLatestSavings()
     getLatestIncome();
-  }, []);
+  },[]);
 
   const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
     // subtitle.style.color = '#f00';
   };
- 
+
   const closeModal = () => {
     setIsOpen(false);
   };
-  
+
   // get all expenses
   const getLatestExpenses = () => {
     API.Expense.getAll(auth.authToken)
       .then(res => {
-        console.log(res)
         setExpensesTable(res.data)
         setFilteredExpensesTable(res.data)
       })
   }
-  
+
   // get all savings
   const getLatestSavings = () => {
     API.Savings.getAll(auth.authToken)
       .then(res => {
-        console.log(res)
         setSavingsTable(res.data)
         setFilteredSavingsTable(res.data)
       })
   }
 
-  
+
   // get all income
   const getLatestIncome = () => {
     API.Income.getAll(auth.authToken)
       .then(res => {
-        console.log(res)
         setIncomeTable(res.data)
         setFilteredIncomeTable(res.data)
       })
@@ -93,38 +90,31 @@ const Dashboard = () => {
 
 
 
-const onDelete=(expenses,expensesid) =>{
-  console.log(auth.authToken)
-  
-         API.Expense.delete(auth.authToken,expenses,userid,expensesid).then(results=>{
-          window.location.reload()
-          console.log()
-        setUserId()
-        })
+  const onDelete = (expenses, expensesid) => {
+    console.log(expensesid)
 
-}
+    API.Expense.delete(auth.authToken, expenses, userid, expensesid).then(results => {
+      getLatestIncome()
+    })
 
-const onIncDelete=(income, incomesid) =>{
-  console.log(auth.authToken)
- 
-         API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
-          window.location.reload()
-          console.log()
-          setUserId()
-        })
+  }
 
-}
+  const onIncDelete = (incomesid) => API.Income.delete(auth.authToken, incomesid).then(results => {
+    getLatestIncome()
+  })
 
-const onSavDelete=(savings,savingsid) =>{
-  console.log(auth.authToken)
- 
-         API.Savings.delete(auth.authToken,savings,"5f0602fbdd4c3f7388b0f950",savingsid).then(results=>{
-          window.location.reload()
-          console.log()
-        setUserId()
-        })
 
-}
+
+  const onSavDelete = (savingsid) => {
+    console.log(auth.authToken)
+
+    API.Savings.delete(auth.authToken, savingsid).then(results => {
+      window.location.reload()
+      console.log()
+      setUserId()
+    })
+
+  }
 
 
 
@@ -203,7 +193,7 @@ const onSavDelete=(savings,savingsid) =>{
       >
         {modalContent === "income" ? <Income close={closeModal} getLatestIncome={getLatestIncome} /> :
           modalContent === "expense" ? <Expense close={closeModal} getLatestExpenses={getLatestExpenses} /> :
-            <Savings close={closeModal} getLatestSavings={getLatestSavings}/>}
+            <Savings close={closeModal} getLatestSavings={getLatestSavings} />}
       </Modal>
 
       {/* Income Savings and Expense Tables */}
@@ -223,11 +213,11 @@ const onSavDelete=(savings,savingsid) =>{
           Savings
         </h3>
         <SavingsTable
-        setSavingsTable={setSavingsTable}
-        savingsTable={savingsTable}
-        setFilteredSavingsTable={setFilteredSavingsTable}
-        filteredSavingsTable={filteredSavingsTable}
-        onSavDelete={onSavDelete}
+          setSavingsTable={setSavingsTable}
+          savingsTable={savingsTable}
+          setFilteredSavingsTable={setFilteredSavingsTable}
+          filteredSavingsTable={filteredSavingsTable}
+          onSavDelete={onSavDelete}
         />
       </div>
 

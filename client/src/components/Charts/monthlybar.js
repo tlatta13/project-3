@@ -14,7 +14,7 @@ class MonthlyBar extends Component {
     let totalSavings = 0;
     API.Expense.getAll(this.context.authToken)
       .then((res) => {
-        console.log(res.data,"expense");
+       
 
         res.data.forEach((expense) => {
           totalExpense += expense.amount;
@@ -26,7 +26,7 @@ class MonthlyBar extends Component {
 
         API.Income.getAll(this.context.authToken)
           .then((res) => {
-            console.log(res.data,"income");
+            
             res.data.forEach((income) => {
               totalIncome += income.amount;
             });
@@ -36,7 +36,7 @@ class MonthlyBar extends Component {
 
             API.Savings.getAll(this.context.authToken)
               .then((res) => {
-                console.log(res.data,"Savings");
+                
                 res.data.forEach((savings) => {
                   totalSavings += savings.amount;
                 });
@@ -44,7 +44,7 @@ class MonthlyBar extends Component {
 
                 
 
-                console.log(totalExpense, totalIncome, totalSavings)
+                
                 this.setState({
                   savings: res.data.savings,
                   datasets: [

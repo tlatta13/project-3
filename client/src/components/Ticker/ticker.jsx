@@ -16,7 +16,7 @@ const TickerComponent= () => {
     // API.Stock.get()
     // .then(({data})=>{
     const data = dummyAPI
-    console.log(data)
+
     setTickerInfo(data)
     //}
   }, [])
