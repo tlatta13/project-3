@@ -67,17 +67,14 @@ IncomeController.get('/:id', JWTVerifier, (req, res) => {
     })
 })
 
-IncomeController.delete('/:userid/:incomesid', (req, res) => {
-    console.log(req.params.userid,req.params.incomesid)
-    db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {incomes: {_id:mongoose.Types.ObjectId(req.params.incomesid)}}}, function(err, data){
-        if(err) {
-          return res.status(500).json({'error' : 'error in deleting address'});
-        }
+IncomeController.delete('/:deleteId',JWTVerifier, (req, res) => {
+    console.log(req.user)
+    req.user.update({$pull:{incomes:{_id: req.params.deleteId}}}, (err)=> {
+        if (err) return handleError(err, res)
+        console.log('Income deleted')
+        res.sendStatus(200)
+    })
 
-        res.json(data);
-
-      });
-    // delete expense
 })
 
 

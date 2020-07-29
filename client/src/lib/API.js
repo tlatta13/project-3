@@ -73,8 +73,8 @@ export default {
         }
       });
     },
-    delete: function (authToken,income,userid,incomesid) {
-      return axios.delete('/api/income/'+userid+"/"+incomesid, {
+    delete: function (authToken, incomesid) {
+      return axios.delete(`/api/income/${incomesid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
