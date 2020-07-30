@@ -70,7 +70,7 @@ class SavingsTable extends Component {
                             <td>{ result.category }</td>
                             <td>${ result.amount }</td>
                             <td>{ result.comment }</td>
-                            <td><button onClick={() => this.props.onSavDelete(result,result._id)}>Delete</button></td>
+                            <td><button onClick={e => this.props.onSavDelete(result._id)}>Delete</button></td>
                         </tr>
                     ))}
                 </tbody>

@@ -87,36 +87,21 @@ const Dashboard = () => {
       })
   }
 
+  // Delete Expense
+  const onDelete = (expensesid) => API.Expense.delete(auth.authToken, expensesid).then(results => {
+      getLatestExpenses()
+  })
 
-
-
-  const onDelete = (expenses, expensesid) => {
-    console.log(expensesid)
-
-    API.Expense.delete(auth.authToken, expenses, userid, expensesid).then(results => {
-      getLatestIncome()
-    })
-
-  }
-
+  // Delete Income
   const onIncDelete = (incomesid) => API.Income.delete(auth.authToken, incomesid).then(results => {
     getLatestIncome()
   })
 
 
-
-  const onSavDelete = (savingsid) => {
-    console.log(auth.authToken)
-
-    API.Savings.delete(auth.authToken, savingsid).then(results => {
-      window.location.reload()
-      console.log()
-      setUserId()
-    })
-
-  }
-
-
+  // Delete Savings
+  const onSavDelete = (savingsid) => API.Savings.delete(auth.authToken, savingsid).then(results => {
+    getLatestSavings()
+  })
 
   const userInfo = useContext(AuthContext);
 
@@ -196,7 +181,7 @@ const Dashboard = () => {
             <Savings close={closeModal} getLatestSavings={getLatestSavings} />}
       </Modal>
 
-      {/* Income Savings and Expense Tables */}
+      {/* Income Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center py-4">Income</h3>
         <IncomeTable
@@ -208,6 +193,7 @@ const Dashboard = () => {
         />
       </div>
 
+      {/* Savings Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Savings
@@ -221,6 +207,7 @@ const Dashboard = () => {
         />
       </div>
 
+      {/* Expense Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Expenses
