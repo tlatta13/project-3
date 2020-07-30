@@ -71,13 +71,12 @@ IncomeController.delete('/:userid/:incomesid', (req, res) => {
     console.log(req.params.userid,req.params.incomesid)
     db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {incomes: {_id:mongoose.Types.ObjectId(req.params.incomesid)}}}, function(err, data){
         if(err) {
-          return res.status(500).json({'error' : 'error in deleting address'});
+          return res.status(500).json({'error' : 'error deleting income'});
         }
 
         res.json(data);
 
       });
-    // delete expense
 })
 
 

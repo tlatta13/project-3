@@ -78,8 +78,7 @@ const Dashboard = () => {
         setFilteredSavingsTable(res.data)
       })
   }
-
-  
+ 
   // get all income
   const getLatestIncome = () => {
     API.Income.getAll(auth.authToken)
@@ -90,43 +89,50 @@ const Dashboard = () => {
       })
   }
 
+  // Delete Expense
+  // const onDelete=(expenses, userid, expensesid) =>{
+  //   console.log(auth.authToken)
+    
+  //   API.Expense.delete(auth.authToken,expenses, userid, expensesid).then(results=>{
+  //     window.location.reload()
+  //     console.log(results)
+  //     setUserId()
+  //   })
+  // }
 
+  const onDelete=(expenses, expensesid) =>{
+    console.log(expensesid)
+    
+    API.Expense.delete(auth.authToken, expenses, expensesid)
+      .then(results=>{
+        window.location.reload()
+        console.log(results)
+        // setUserId()
+      }
+    )
+  }  
 
-
-const onDelete=(expenses,expensesid) =>{
-  console.log(auth.authToken)
+  // Delete Income
+  const onIncDelete=(income, incomesid) =>{
+    console.log(auth.authToken)
   
-         API.Expense.delete(auth.authToken,expenses,userid,expensesid).then(results=>{
-          window.location.reload()
-          console.log()
-        setUserId()
-        })
+    API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
+      window.location.reload()
+      console.log()
+      setUserId()
+    })
+  }
 
-}
-
-const onIncDelete=(income, incomesid) =>{
-  console.log(auth.authToken)
- 
-         API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
-          window.location.reload()
-          console.log()
-          setUserId()
-        })
-
-}
-
-const onSavDelete=(savings,savingsid) =>{
-  console.log(auth.authToken)
- 
-         API.Savings.delete(auth.authToken,savings,"5f0602fbdd4c3f7388b0f950",savingsid).then(results=>{
-          window.location.reload()
-          console.log()
-        setUserId()
-        })
-
-}
-
-
+  // Delete Savings
+  const onSavDelete=(savings,savingsid) =>{
+    console.log(auth.authToken)
+  
+    API.Savings.delete(auth.authToken,savings,"5f0602fbdd4c3f7388b0f950",savingsid).then(results=>{
+      window.location.reload()
+      console.log()
+    setUserId()
+    })
+  }
 
   const userInfo = useContext(AuthContext);
 
@@ -206,7 +212,7 @@ const onSavDelete=(savings,savingsid) =>{
             <Savings close={closeModal} getLatestSavings={getLatestSavings}/>}
       </Modal>
 
-      {/* Income Savings and Expense Tables */}
+      {/* Income Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center py-4">Income</h3>
         <IncomeTable
@@ -218,6 +224,7 @@ const onSavDelete=(savings,savingsid) =>{
         />
       </div>
 
+      {/* Savings Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Savings
@@ -231,6 +238,7 @@ const onSavDelete=(savings,savingsid) =>{
         />
       </div>
 
+      {/* Expense Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Expenses

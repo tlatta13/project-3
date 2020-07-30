@@ -76,7 +76,7 @@ SavingsController.delete('/:userid/:savingsid', (req, res) => {
     console.log(req.params.userid,req.params.savingsid)
     db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {savings: {_id:mongoose.Types.ObjectId(req.params.savingsid)}}}, function(err, data){
         if(err) {
-          return res.status(500).json({'error' : 'error in deleting address'});
+          return res.status(500).json({'error' : 'error in deleting savings'});
         }
 
         res.json(data);

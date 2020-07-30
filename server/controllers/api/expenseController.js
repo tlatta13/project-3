@@ -30,53 +30,8 @@ ExpenseController.post('/', JWTVerifier, async (req, res) => {
 
 // GET /api/expense
 ExpenseController.get('/', JWTVerifier, (req, res) => {
-
-    //db.expense.findAll
-
     // get all expenses
     res.json(req.user.expenses);
-    
-    // res.json(
-    //     [
-    //         {
-    //             date: "06/1/2020",
-    //             category: "Mortgage",
-    //             amount: 1200 ,
-    //             comment: "Paid extra this month"
-    //         },
-    //         {
-    //             date: "06/5/2020",
-    //             category: "Car Lease",
-    //             amount: 350 ,
-    //             comment: ""
-    //         },
-    //         {
-    //             date: "06/17/2020",
-    //             category: "Car Insurance",
-    //             amount: 120 ,
-    //             comment: "Received a rona discount"
-    //         }
-    //         ,
-    //         {
-    //             date: "06/23/2020",
-    //             category: "Health & Wellness",
-    //             amount: 200 ,
-    //             comment: "Dentist Appt."
-    //         },
-    //         {
-    //             date: "06/15/2020",
-    //             category: "Home",
-    //             amount: 120 ,
-    //             comment: "Window Cleaning"
-    //         },
-    //         {
-    //             date: "06/12/2020",
-    //             category: "Food & Dining",
-    //             amount: 65 ,
-    //             comment: "Dinner with friends"
-    //         }
-    //     ]
-    // )
 })
 
 // Update Expense - May not need
@@ -87,17 +42,28 @@ ExpenseController.get('/', ({body, params}, res) => {
 })
 
 // Delete Expense
-ExpenseController.delete('/:userid/:expensesid', (req, res) => {
-    console.log(req.params.userid,req.params.expensesid)
-    db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {expenses: {_id:mongoose.Types.ObjectId(req.params.expensesid)}}}, function(err, data){
+// ExpenseController.delete('/:userid/:expensesid', (req, res) => {
+//     console.log(req.params.userid,req.params.expensesid)
+//     db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {expenses: {_id:mongoose.Types.ObjectId(req.params.expensesid)}}}, function(err, data){
+//         if(err) {
+//           return res.status(500).json({'error' : 'error in deleting expense'});
+//         }
+
+//         res.json(data);
+
+//       });
+// })
+
+ExpenseController.delete('/:expensesid', JWTVerifier, (req, res) => {
+    console.log(req.params.expensesid)
+    req.user.expenses.findByIdAndDelete({_id:req.params.expensesid}, function(err, data){
         if(err) {
-          return res.status(500).json({'error' : 'error in deleting address'});
+          return res.status(500).json({'error' : 'error deleting expense'});
         }
 
         res.json(data);
 
       });
-    // delete expense
 })
 
 module.exports = ExpenseController
