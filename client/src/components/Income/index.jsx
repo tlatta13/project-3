@@ -6,7 +6,7 @@ import AuthContext from '../../contexts/AuthContext'
 
 const customStyles = {
     main:{
-        'font-family': 'Arial, Helvetica, sans-serif'
+        'fontFamily': 'Arial, Helvetica, sans-serif'
     }
   };
 
@@ -32,13 +32,6 @@ const Income = (props) => {
     })
     .then(()=>{
       props.getLatestIncome();
-      window.location.reload();
-      console.log({
-        date: date,
-        category: category,
-        amount: income,
-        comment: comment
-      });
     props.close()
   })
 };
@@ -54,7 +47,7 @@ const Income = (props) => {
             </div>
           </div>
 
-          <div class="form-group">
+          <div className="form-group">
             <label htmlFor="categoryBox">Type of Income:</label>
             <select 
               className="form-control" 

@@ -34,35 +34,13 @@ ExpenseController.get('/', JWTVerifier, (req, res) => {
     res.json(req.user.expenses);
 })
 
-// Update Expense - May not need
-ExpenseController.get('/', ({body, params}, res) => {
-    // update expense
-    //db.Expense.find({})
-
-})
-
 // Delete Expense
-// ExpenseController.delete('/:userid/:expensesid', (req, res) => {
-//     console.log(req.params.userid,req.params.expensesid)
-//     db.Users.findOneAndUpdate({_id:mongoose.Types.ObjectId(req.params.userid)},{$pull: {expenses: {_id:mongoose.Types.ObjectId(req.params.expensesid)}}}, function(err, data){
-//         if(err) {
-//           return res.status(500).json({'error' : 'error in deleting expense'});
-//         }
-
-//         res.json(data);
-
-//       });
-// })
-
-ExpenseController.delete('/:expensesid', JWTVerifier, (req, res) => {
-    console.log(req.params.expensesid)
-    req.user.expenses.findByIdAndDelete({_id:req.params.expensesid}, function(err, data){
-        if(err) {
-          return res.status(500).json({'error' : 'error deleting expense'});
-        }
-
-        res.json(data);
-
+ExpenseController.delete('/:deleteId', JWTVerifier, (req, res) => {
+    // console.log(req.user)
+    req.user.update({$pull:{expenses:{_id: req.params.deleteId}}}, (err) => {
+        if(err) return handleError(err, res)
+        console.log('Expense Deleted')
+        res.sendStatus(200);
       });
 })
 

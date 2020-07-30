@@ -11,7 +11,6 @@ class PieChart extends Component {
     componentDidMount() {
         API.Expense.getAll(this.context.authToken)
         .then(res => {
-            console.log(res)
 
            const newLabels = res.data.map(expense=>{
                return expense.category

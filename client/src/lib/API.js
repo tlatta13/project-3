@@ -50,15 +50,8 @@ export default {
         });
     },
     // Delete expense
-    // delete: function (authToken,expense,userid,expensesid) {
-    //   return axios.delete('/api/expense/'+userid+"/"+expensesid, {
-    //     headers: {
-    //       'Authorization': `Bearer ${authToken}`
-    //     }
-    //     });
-    // },
-    delete: function (authToken, expense, expensesid) {
-      return axios.delete('/api/expense/' + expensesid, expense, {
+    delete: function (authToken, expensesid) {
+      return axios.delete(`/api/expense/${expensesid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -84,9 +77,8 @@ export default {
         }
       });
     },
-    // Delete income
-    delete: function (authToken,income,userid,incomesid) {
-      return axios.delete('/api/income/'+userid+"/"+incomesid, {
+    delete: function (authToken, incomesid) {
+      return axios.delete(`/api/income/${incomesid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -113,8 +105,8 @@ export default {
         });
     },
     // delete savings
-    delete: function (authToken,savings,userid,savingsid) {
-      return axios.delete('/api/savings/'+userid+"/"+savingsid, {
+    delete: function (authToken, savingsid) {
+      return axios.delete(`/api/savings/${savingsid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
