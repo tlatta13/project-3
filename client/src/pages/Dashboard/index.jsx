@@ -37,7 +37,7 @@ const Dashboard = () => {
   const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const [incomeTable, setIncomeTable] = useState([])
   const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
-  const [userid, setUserId] = useState([])
+  // const [userid, setUserId] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -77,7 +77,6 @@ const Dashboard = () => {
       })
   }
 
-
   // get all income
   const getLatestIncome = () => {
     API.Income.getAll(auth.authToken)
@@ -89,18 +88,21 @@ const Dashboard = () => {
 
   // Delete Expense
   const onDelete = (expensesid) => API.Expense.delete(auth.authToken, expensesid).then(results => {
-      getLatestExpenses()
+      getLatestExpenses();
+      window.location.reload();
   })
 
   // Delete Income
   const onIncDelete = (incomesid) => API.Income.delete(auth.authToken, incomesid).then(results => {
-    getLatestIncome()
+    getLatestIncome();
+    window.location.reload();
   })
 
 
   // Delete Savings
   const onSavDelete = (savingsid) => API.Savings.delete(auth.authToken, savingsid).then(results => {
-    getLatestSavings()
+    getLatestSavings();
+    window.location.reload();
   })
 
   const userInfo = useContext(AuthContext);
