@@ -33,12 +33,6 @@ const Expense = (props) => {
     .then(()=>{
       props.getLatestExpenses();
       window.location.reload();
-      console.log({
-        date: date,
-        category: category,
-        amount: expense,
-        comment: comment
-      });
       props.close()
     })
   };
@@ -47,13 +41,14 @@ const Expense = (props) => {
     <>
       <form style={customStyles.main}>
         <div className="form-group">
-          <div>
+          <div className="mb-3">
             <label htmlFor="categoryBox">Expense Date:</label>
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
-          <div class="form-group">
+
+          <div className="mb-3">
             <label htmlFor="categoryBox">Type of Expense:</label>
             <select 
               className="form-control" 
@@ -76,31 +71,32 @@ const Expense = (props) => {
                 <option>Other</option>
             </select>
           </div>
+
+          <div className="mb-3">
+            <label htmlFor="incomeBox">Expense Amount:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="incomeBox"
+              value={expense}
+              onChange={(event) => setExpense(event.target.value)}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label htmlFor="categoryBox">Notes:</label>
+            <textarea
+              id="commentBox"
+              rows="4"
+              cols="50"
+              className="form-control"
+              style={{ resize: "none" }}
+              value ={comment}
+              onChange={event=>setComment(event.target.value)}
+            />
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="incomeBox">Expense Amount:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="incomeBox"
-            value={expense}
-            onChange={(event) => setExpense(event.target.value)}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="categoryBox">Notes:</label>
-          <textarea
-            id="commentBox"
-            rows="4"
-            cols="50"
-            className="form-control"
-            style={{ resize: "none" }}
-            value ={comment}
-            onChange={event=>setComment(event.target.value)}
-          />
-        </div>
         <div
           style={{
             display: "flex",

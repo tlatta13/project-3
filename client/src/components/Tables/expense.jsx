@@ -7,8 +7,6 @@ class ExpenseTable extends Component {
     static contextType = authContext;
 
     state = {
-        // expenses: [],
-        // filteredExpenses: [],
         order: ""
     };
 
@@ -19,7 +17,6 @@ class ExpenseTable extends Component {
                 (a.date > b.date) ? -1 : 1);
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                // filteredExpenses: sortExpenses,
                 order: "asc"
             });
         } else {
@@ -27,7 +24,6 @@ class ExpenseTable extends Component {
                 (a.date > b.date) ? 1 : -1);
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                //filteredExpenses: sortExpenses,
                 order: "desc"
             });
         };
@@ -41,7 +37,6 @@ class ExpenseTable extends Component {
 
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                // filteredExpenses: sortExpenses,
                 order: "asc"
             });
         } else {
@@ -50,12 +45,10 @@ class ExpenseTable extends Component {
 
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                //filteredExpenses: sortExpenses,
                 order: "desc"
             });
         };
     };
-
 
     render() {
         return (
