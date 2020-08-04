@@ -1,7 +1,7 @@
 const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const IncomeController = require('express').Router();
-const mongoose = require ('mongoose')
+
 // Error Handler
 const handleError = (err, res) => {
     console.log(err)
@@ -30,17 +30,6 @@ IncomeController.post('/', JWTVerifier, (req, res) => {
 IncomeController.get('/', JWTVerifier, (req, res) => {
     // get all income
     res.json(req.user.incomes);
-})
-
-// GET /api/income/
-IncomeController.get('/:id', JWTVerifier, (req, res) => {
-    // delete income
-    req.user.expenses.pull(_id);
-    req.user.save(function (err) {
-        if (err) return handleError(err, res)
-        console.log('Income deleted')
-        res.sendStatus(200)
-    })
 })
 
 // Delete income

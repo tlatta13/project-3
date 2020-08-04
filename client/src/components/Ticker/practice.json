@@ -4,7 +4,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "SNP",
-                "symbol": "^GSPC",
+                "symbol": "GSPC",
                 "regularMarketChange": {
                     "raw": 7.98999,
                     "fmt": "7.99"
@@ -45,7 +45,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "DJI",
-                "symbol": "^DJI",
+                "symbol": "DJI",
                 "regularMarketChange": {
                     "raw": 156.23047,
                     "fmt": "156.23"
@@ -86,7 +86,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "Nasdaq GIDS",
-                "symbol": "^IXIC",
+                "symbol": "IXIC",
                 "regularMarketChange": {
                     "raw": -16.72168,
                     "fmt": "-16.72"
@@ -127,7 +127,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "Chicago Options",
-                "symbol": "^RUT",
+                "symbol": "RUT",
                 "regularMarketChange": {
                     "raw": 14.297485,
                     "fmt": "14.30"
@@ -335,7 +335,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "NYBOT",
-                "symbol": "^TNX",
+                "symbol": "TNX",
                 "regularMarketChange": {
                     "raw": 0.0019999743,
                     "fmt": "0.0020"
@@ -376,7 +376,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "Chicago Options",
-                "symbol": "^VIX",
+                "symbol": "VIX",
                 "regularMarketChange": {
                     "raw": -0.710001,
                     "fmt": "-0.71"
@@ -539,7 +539,7 @@
             {
                 "exchangeTimezoneName": "America/New_York",
                 "fullExchangeName": "Nasdaq GIDS",
-                "symbol": "^CMC200",
+                "symbol": "CMC200",
                 "regularMarketChange": {
                     "raw": 0,
                     "fmt": "0.00"
@@ -580,7 +580,7 @@
             {
                 "exchangeTimezoneName": "Europe/London",
                 "fullExchangeName": "FTSE Index",
-                "symbol": "^FTSE",
+                "symbol": "FTSE",
                 "regularMarketChange": {
                     "raw": 50.339844,
                     "fmt": "50.34"
@@ -620,7 +620,7 @@
             {
                 "exchangeTimezoneName": "Asia/Tokyo",
                 "fullExchangeName": "Osaka",
-                "symbol": "^N225",
+                "symbol": "N225",
                 "regularMarketChange": {
                     "raw": -238.47852,
                     "fmt": "-238.48"
