@@ -33,23 +33,6 @@ SavingsController.get('/', JWTVerifier, (req, res) => {
     res.json(req.user.savings);
 })
 
-// GET /api/income/:id
-SavingsController.get('/:id', JWTVerifier, ({body, params}, res) => {
-    // update income
-})
-
-// GET /api/income/
-SavingsController.get('/:id', JWTVerifier, (req, res) => {
-    // delete income
-    req.user.savings.pull(_id);
-
-    req.user.save(function (err) {
-        if (err) return handleError(err, res)
-        console.log('Savings deleted')
-        res.sendStatus(200)
-    })
-})
-
 // Delete savings
 SavingsController.delete('/:deleteId', JWTVerifier, (req, res) => {
     console.log(req.user)

@@ -1,7 +1,7 @@
 const db = require('../../models');
 const { JWTVerifier } = require("../../lib/passport");
 const ExpenseController = require('express').Router();
-const mongoose = require ('mongoose')
+
 // Error Handler
 const handleError = (err, res) => {
     console.log(err)
