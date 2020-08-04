@@ -37,6 +37,7 @@ const Dashboard = () => {
   const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const [incomeTable, setIncomeTable] = useState([])
   const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
+  const [userid] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -95,7 +96,7 @@ const Dashboard = () => {
 const onDelete=(expenses,expensesid) =>{
   console.log(auth.authToken)
  
-         API.Expense.delete(auth.authToken,expenses,"5f0602fbdd4c3f7388b0f950",expensesid).then(results=>{
+         API.Expense.delete(auth.authToken,expenses,userid(result._id),expensesid).then(results=>{
           window.location.reload()
           console.log(results)})
 
