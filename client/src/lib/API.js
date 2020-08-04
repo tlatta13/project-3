@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+
+
 export default {
   Users: {
     login: function (email, password) {
@@ -29,8 +31,9 @@ export default {
     }
   },
 
-  // Get all expenses
+  // Expense Routes
   Expense: {
+    // Get all expenses
     getAll: function (authToken) {
       return axios.get('/api/expense', {
         headers: {
@@ -38,25 +41,27 @@ export default {
         }
       });
     },
-    post: function (authToken,expense) {
+    // Add new expense
+    post: function (authToken, expense) {
       return axios.post('/api/expense', expense, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
         });
     },
-    delete: function (authToken,expense,userid,expensesid) {
-      return axios.delete('/api/expense/'+userid+"/"+expensesid, {
+    // Delete expense
+    delete: function (authToken, expensesid) {
+      return axios.delete(`/api/expense/${expensesid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
-        });
+      });
     }
-  
   },
 
-  // Get all income
+  // Income Routes
   Income: {
+    // Get all income
     getAll: function (authToken) {
       return axios.get('/api/income', {
         headers: {
@@ -64,15 +69,16 @@ export default {
         }
       });
     },
-    post: function (authToken,income) {
+    // Add new income
+    post: function (authToken, income) {
       return axios.post('/api/income', income, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
       });
     },
-    delete: function (authToken,income,userid,incomesid) {
-      return axios.delete('/api/income/'+userid+"/"+incomesid, {
+    delete: function (authToken, incomesid) {
+      return axios.delete(`/api/income/${incomesid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
@@ -80,8 +86,9 @@ export default {
     },
   },
   
-  // Get all savings
+  // Savings Routes
   Savings: {
+    // Get all savings
     getAll: function (authToken) {
       return axios.get('/api/savings', {
         headers: {
@@ -89,21 +96,25 @@ export default {
         }
       });
     },
-    post: function (authToken,savings) {
+    // Add new savings
+    post: function (authToken, savings) {
       return axios.post('/api/savings', savings, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
         });
     },
-    delete: function (authToken,savings,userid,savingsid) {
-      return axios.delete('/api/savings/'+userid+"/"+savingsid, {
+    // delete savings
+    delete: function (authToken, savingsid) {
+      return axios.delete(`/api/savings/${savingsid}`, {
         headers: {
           'Authorization': `Bearer ${authToken}`
         }
         });
     },
   },
+  
+  // Get stock data
   Stock: {
     get:function(){
       return axios.get('/api/stock')

@@ -37,7 +37,7 @@ const Dashboard = () => {
   const [filteredSavingsTable, setFilteredSavingsTable] = useState([])
   const [incomeTable, setIncomeTable] = useState([])
   const [filteredIncomeTable, setFilteredIncomeTable] = useState([])
-  const [userid] = useState([])
+  // const [userid, setUserId] = useState([])
   const openModal = (contents) => {
     setModalContent(contents);
     setIsOpen(true);
@@ -48,79 +48,62 @@ const Dashboard = () => {
     getLatestExpenses()
     getLatestSavings()
     getLatestIncome();
-  }, []);
+  },[]);
 
   const afterOpenModal = () => {
     // references are now sync'd and can be accessed.
     // subtitle.style.color = '#f00';
   };
- 
+
   const closeModal = () => {
     setIsOpen(false);
   };
-  
+
   // get all expenses
   const getLatestExpenses = () => {
     API.Expense.getAll(auth.authToken)
       .then(res => {
-        console.log(res)
         setExpensesTable(res.data)
         setFilteredExpensesTable(res.data)
       })
   }
-  
+
   // get all savings
   const getLatestSavings = () => {
     API.Savings.getAll(auth.authToken)
       .then(res => {
-        console.log(res)
         setSavingsTable(res.data)
         setFilteredSavingsTable(res.data)
       })
   }
 
-  
   // get all income
   const getLatestIncome = () => {
     API.Income.getAll(auth.authToken)
       .then(res => {
-        console.log(res)
         setIncomeTable(res.data)
         setFilteredIncomeTable(res.data)
       })
   }
 
+  // Delete Expense
+  const onDelete = (expensesid) => API.Expense.delete(auth.authToken, expensesid).then(results => {
+      getLatestExpenses();
+      window.location.reload();
+  })
+
+  // Delete Income
+  const onIncDelete = (incomesid) => API.Income.delete(auth.authToken, incomesid).then(results => {
+    getLatestIncome();
+    window.location.reload();
+  })
 
 
-
-const onDelete=(expenses,expensesid) =>{
-  console.log(auth.authToken)
- 
-         API.Expense.delete(auth.authToken,expenses,userid(result._id),expensesid).then(results=>{
-          window.location.reload()
-          console.log(results)})
-
-}
-
-const onIncDelete=(income, incomesid) =>{
-  console.log(auth.authToken)
- 
-         API.Income.delete(auth.authToken,income,"5f0602fbdd4c3f7388b0f950",incomesid).then(results=>{
-          window.location.reload()
-          console.log(results)})
-
-}
-
-const onSavDelete=(savings,savingsid) =>{
-  console.log(auth.authToken)
- 
-         API.Savings.delete(auth.authToken,savings,"5f0602fbdd4c3f7388b0f950",savingsid).then(results=>{
-          window.location.reload()
-          console.log(results)})
-
-}
-
-
+  // Delete Savings
+  const onSavDelete = (savingsid) => API.Savings.delete(auth.authToken, savingsid).then(results => {
+    getLatestSavings();
+    window.location.reload();
+  })
 
   const userInfo = useContext(AuthContext);
 
@@ -197,10 +180,10 @@ const onSavDelete=(savings,savingsid) =>{
       >
         {modalContent === "income" ? <Income close={closeModal} getLatestIncome={getLatestIncome} /> :
           modalContent === "expense" ? <Expense close={closeModal} getLatestExpenses={getLatestExpenses} /> :
-            <Savings close={closeModal} getLatestSavings={getLatestSavings}/>}
+            <Savings close={closeModal} getLatestSavings={getLatestSavings} />}
       </Modal>
 
-      {/* Income Savings and Expense Tables */}
+      {/* Income Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center py-4">Income</h3>
         <IncomeTable
@@ -212,19 +195,21 @@ const onSavDelete=(savings,savingsid) =>{
         />
       </div>
 
+      {/* Savings Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Savings
         </h3>
         <SavingsTable
-        setSavingsTable={setSavingsTable}
-        savingsTable={savingsTable}
-        setFilteredSavingsTable={setFilteredSavingsTable}
-        filteredSavingsTable={filteredSavingsTable}
-        onSavDelete={onSavDelete}
+          setSavingsTable={setSavingsTable}
+          savingsTable={savingsTable}
+          setFilteredSavingsTable={setFilteredSavingsTable}
+          filteredSavingsTable={filteredSavingsTable}
+          onSavDelete={onSavDelete}
         />
       </div>
 
+      {/* Expense Table */}
       <div className="container bg-light border-0 rounded my-4">
         <h3 className="text-center mb-3 py-4">
           Expenses

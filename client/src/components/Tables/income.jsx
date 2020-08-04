@@ -72,7 +72,14 @@ class IncomeTable extends Component {
                             <td>{result.category}</td>
                             <td>${result.amount}</td>
                             <td>{result.comment}</td>
-                            <td><button onClick={() => this.props.onIncDelete(result,result._id)}>Delete</button></td>
+                            <td>
+                                <button 
+                                    onClick={e => this.props.onIncDelete(result._id)}
+                                    className="btn btn-outline-danger btn-sm"
+                                >
+                                Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

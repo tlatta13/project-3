@@ -7,8 +7,6 @@ class ExpenseTable extends Component {
     static contextType = authContext;
 
     state = {
-        // expenses: [],
-        // filteredExpenses: [],
         order: ""
     };
 
@@ -19,7 +17,6 @@ class ExpenseTable extends Component {
                 (a.date > b.date) ? -1 : 1);
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                // filteredExpenses: sortExpenses,
                 order: "asc"
             });
         } else {
@@ -27,7 +24,6 @@ class ExpenseTable extends Component {
                 (a.date > b.date) ? 1 : -1);
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                //filteredExpenses: sortExpenses,
                 order: "desc"
             });
         };
@@ -41,7 +37,6 @@ class ExpenseTable extends Component {
 
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                // filteredExpenses: sortExpenses,
                 order: "asc"
             });
         } else {
@@ -50,12 +45,10 @@ class ExpenseTable extends Component {
 
             this.props.setFilteredExpensesTable(sortExpenses)
             this.setState({
-                //filteredExpenses: sortExpenses,
                 order: "desc"
             });
         };
     };
-
 
     render() {
         return (
@@ -77,7 +70,14 @@ class ExpenseTable extends Component {
                             <td>{result.category}</td>
                             <td>${result.amount}</td>
                             <td>{result.comment}</td>
-                            <td><button onClick={() => this.props.onDelete(result,result._id)}>Delete</button></td>
+                            <td>
+                                <button 
+                                    onClick={e => this.props.onDelete(result._id)}
+                                    className="btn btn-outline-danger btn-sm"
+                                >
+                                Delete
+                                </button>
+                            </td>
                         </tr>
                     ))}
                 </tbody>

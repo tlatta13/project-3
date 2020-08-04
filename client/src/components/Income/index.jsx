@@ -6,7 +6,7 @@ import AuthContext from '../../contexts/AuthContext'
 
 const customStyles = {
     main:{
-        'font-family': 'Arial, Helvetica, sans-serif'
+        'fontFamily': 'Arial, Helvetica, sans-serif'
     }
   };
 
@@ -33,13 +33,7 @@ const Income = (props) => {
     .then(()=>{
       props.getLatestIncome();
       window.location.reload();
-      console.log({
-        date: date,
-        category: category,
-        amount: income,
-        comment: comment
-      });
-    props.close()
+      props.close()
   })
 };
 
@@ -47,14 +41,14 @@ const Income = (props) => {
     <>
       <form style={customStyles.main}>
         <div className="form-group">
-          <div className="mb-2">
+          <div  className="mb-3">
           <label htmlFor="categoryBox">Income Date:</label>
             <div>
               <DatePicker selected={date} onChange={(date) => setDate(date)} />
             </div>
           </div>
 
-          <div class="form-group">
+          <div  className="mb-3">
             <label htmlFor="categoryBox">Type of Income:</label>
             <select 
               className="form-control" 
@@ -73,31 +67,32 @@ const Income = (props) => {
                 <option>Other</option>
             </select>
           </div>
+
+          <div className="mb-3">
+            <label htmlFor="incomeBox">Income Amount:</label>
+            <input
+              type="text"
+              className="form-control"
+              id="incomeBox"
+              value={income}
+              onChange={(event) => setIncome(event.target.value)}
+            />
+          </div>
+          
+          <div className="mb-3">
+            <label htmlFor="categoryBox">Notes:</label>
+            <textarea
+              id="commentBox"
+              rows="4"
+              cols="50"
+              className="form-control"
+              style={{ resize: "none" }}
+              value ={comment}
+              onChange={event=>setComment(event.target.value)}
+            />
+          </div>
         </div>
         
-        <div>
-          <label htmlFor="incomeBox">Income Amount:</label>
-          <input
-            type="text"
-            className="form-control"
-            id="incomeBox"
-            value={income}
-            onChange={(event) => setIncome(event.target.value)}
-          />
-        </div>
-        
-        <div>
-          <label htmlFor="categoryBox">Notes:</label>
-          <textarea
-            id="commentBox"
-            rows="4"
-            cols="50"
-            className="form-control"
-            style={{ resize: "none" }}
-            value ={comment}
-            onChange={event=>setComment(event.target.value)}
-          />
-        </div>
         <div
           style={{
             display: "flex",

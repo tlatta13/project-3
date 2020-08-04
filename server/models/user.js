@@ -53,7 +53,7 @@ const SavingSchema = new Schema({
   },
   category: { 
     type: String,
-    required: 'Please enter a category'
+    // required: 'Please enter a category'
   },
   amount: { 
     type: Number,

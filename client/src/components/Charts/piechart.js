@@ -11,24 +11,24 @@ class PieChart extends Component {
     componentDidMount() {
         API.Expense.getAll(this.context.authToken)
         .then(res => {
-            console.log(res)
+            const newLabels = res.data.map(expense=>{
+                return expense.category
+            })
 
-           const newLabels = res.data.map(expense=>{
-               return expense.category
-           })
+            const newAmount = res.data.map(expense=>{
+                return expense.amount
+            })
 
-           const newAmount = res.data.map(expense=>{
-               return expense.amount
-           })
-
-           this.setState({
-            expenses: res.data,
-           labels : newLabels, 
-           datasets:[
-           {data: newAmount,
-           backgroundColor: this.colors}]
+            this.setState({
+                expenses: res.data,
+                labels : newLabels, 
+                datasets:[
+                    {data: newAmount,
+                    backgroundColor: this.colors
+                    }
+                ]
+            })
         })
-    })
         .catch(err => console.log(err));
     }
     
