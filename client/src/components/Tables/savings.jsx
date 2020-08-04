@@ -7,8 +7,6 @@ class SavingsTable extends Component {
     static contextType = authContext;
 
     state = {
-        //savings: [],
-        //filteredSavings: [],
         order: ""
     };
 

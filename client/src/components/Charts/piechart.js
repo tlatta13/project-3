@@ -3,10 +3,8 @@ import {Pie} from 'react-chartjs-2'
 import authContext from '../../contexts/AuthContext'
 import API from '../../lib/API'
 
-
 class PieChart extends Component {
     static contextType = authContext;
-    
   
     componentDidMount() {
         API.Expense.getAll(this.context.authToken)
@@ -79,6 +77,5 @@ render(){
     )
   }
 }
-
 
 export default PieChart
