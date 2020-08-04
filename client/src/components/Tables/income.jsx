@@ -9,8 +9,6 @@ class IncomeTable extends Component {
     static contextType = authContext;
 
     state = {
-        // incomes: [],
-        // filteredIncomes: [],
         order: ""
     };
 
