@@ -1,7 +1,5 @@
 import axios from 'axios';
 
-
-
 export default {
   Users: {
     login: function (email, password) {
