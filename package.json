@@ -19,7 +19,7 @@
     "nodemon": "^1.18.10"
   },
   "dependencies": {
-    "chart.js": "^2.9.3",
+    "chart.js": "^2.9.4",
     "react-chartjs-2": "^2.9.0",
     "react-datepicker": "^3.0.0",
     "react-page-visibility": "^6.2.0",
